@@ -25,21 +25,27 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
-                    <a {{-- href="{{route('dashboard')}}" --}} class="nav-link">
+                    <a {{-- href="{{route('home')}}" --}} class="nav-link">
                         <i class="nav-icon fa fa-dashboard"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="/perusahaan" class="nav-link">
-                        <i class="nav-icon fa-solid fa-gauge"></i>
-                        <p>perusahaan</p>
+                        <i class="nav-icon fa-solid fa-building"></i>
+                        <p>Data Perusahaan</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/data/perintah_kerja" class="nav-link">
+                        <i class="nav-icon fa-solid fa-file-text "></i>
+                        <p>Data Pesanan</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="/laporan" class="nav-link">
-                        <i class="nav-icon fa fa-dashboard"></i>
-                        <p>laporan</p>
+                        <i class="nav-icon fa fa-file" aria-hidden="true"></i>
+                        <p>Cetak Laporan</p>
                     </a>
                 </li>
 

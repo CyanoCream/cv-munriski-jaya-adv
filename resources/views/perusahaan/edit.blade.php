@@ -44,18 +44,6 @@
                           <input type="text" class="form-control" name="pemberi_kerja" value="{{$p->pemberi_kerja}}">
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                          <label for="name" class="col-form-label">Metode Pembayaran:</label>
-                          <input type="text" class="form-control" name="metode_pembayaran" value="{{$p->metode_pembayaran}}">
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                          <label for="name" class="col-form-label">No Rekening:</label>
-                          <input type="text" class="form-control" name="norek" value="{{$p->norek}}">
-                        </div>
-                    </div>
                     <div class="col-sm-12">
                         <div class="form-group">
                           <label for="name" class="col-form-label">Alamat:</label>

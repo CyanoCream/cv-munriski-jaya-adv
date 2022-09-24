@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('perusahaan.index');
+    return view('welcome');
 });
 
 Route::get('/invoice', function () {
@@ -42,4 +42,8 @@ Route::get('/data/perintah_kerja', function () {
 
 // Route::get('/data/perintah_kerja/{id}', 'App\Http\Controllers\PerusahaanController@show')->name('perintah.kerja');
 Route::post('/data/perintah_kerja', 'App\Http\Controllers\PerusahaanController@store_spk')->name('store.perintah.kerja');
-Route::get('/data/perintah_kerja/{id}', 'App\Http\Controllers\PerintahkerjaController@index')->name('perintah.kerja');
+Route::get('/data/perintah_kerja', 'App\Http\Controllers\PerintahkerjaController@index')->name('perintah.kerja');
+Route::post('/data/perintah_kerja/create', 'App\Http\Controllers\PerintahkerjaController@create')->name('perintah.kerja.create');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

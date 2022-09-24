@@ -12,14 +12,14 @@ class PerintahkerjaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
-        $perintah_kerja = Perintah_kerja::all();
-        $perusahaan = Perusahaan::find($id);
+        $perintah_kerja = Perintah_kerja::with('perusahaan')->get();
+        // $perusahaan = Perusahaan::find();
         // dd($perusahaan);
         // dd($perintah_kerja);
 
-        return view('perintah_kerja.index', compact('perintah_kerja', 'perusahaan'));
+        return view('perintah_kerja.index', compact('perintah_kerja'));
     }
 
     /**
@@ -27,9 +27,16 @@ class PerintahkerjaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $perusahaan = Perusahaan::all();
+        $perintah = new Perintah_kerja;
+        $perintah->perusahaan_id = '1';
+        $perintah->deskripsi = $request->deskripsi;
+        $perintah->kuantitas = $request->kuantitas;
+        $perintah->harga_unit = $request->harga_unit;
+        $perintah->total = $request->kuantitas * $request->harga_unit;
+        $perintah->save();
     }
 
     /**

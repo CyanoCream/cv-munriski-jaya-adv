@@ -45,7 +45,6 @@ class PerusahaanController extends Controller
         // dd($request);
         $perusahaan = new Perusahaan();
         $perusahaan->invoice= $request->invoice;
-        $perusahaan->lampiran= 'ghhcgch';
         $perusahaan->nospk= $request->nospk;
         $perusahaan->nama= $request->nama;
         $perusahaan->alamat= $request->alamat;

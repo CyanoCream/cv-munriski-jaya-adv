@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-{{-- {{$perusahaan}} --}}
+
 <div class="container">
     <div class="d-flex">
       <h2  class="p-2">Jenis Pekerjaan</h2>
@@ -19,22 +19,27 @@
                 <th scope="col">kuantitas</th>
                 <th scope="col">Harga Unit</th>
                 <th scope="col">Total</th>
+                <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
 
-            @foreach ($perintah_kerja as $pk)
-
+          
+          @foreach($perintah_kerja as $perintah)
+  
+          
                 <tr>
                     <td scope="col">1</td>
-                    <td>{{$pk->nama}}</td>
-                    <td>{{$pk->deskripsi}}</td>
-                    <td>{{$pk->kuantitas}} Buah</td>
-                    <td>IDR {{$pk->harga_unit}}</td>
-                    <td>IDR {{$pk->total}}</td>
+                    <td>{{$perintah->perusahaan->nama}}</td>
+                    <td>{{$perintah->deskripsi}}</td>
+                    <td>{{$perintah->kuantitas}}</td>
+                    <td>IDR{{$perintah->harga_unit}}</td>
+                    <td>IDR{{$perintah->total}} </td>
+                    <td> <a href="#" class="btn btn-primary" data-toggle="modal" data-target=".bd-edit-modal-lg">Edit</a>
+                            <a onclick="confirmDelete(this)" class="btn btn-danger" role="button" data-url="#">Delete</a></td>
 
                 </tr>
-@endforeach
+                @endforeach
         </tbody>
     </table>
 
@@ -49,14 +54,14 @@
             </button>
           </div>
           <div class="modal-body">
-            <form method="post" action="{{route('store.perintah.kerja')}}">
+            <form method="post" action="{{route('perintah.kerja.create')}}">
                 @csrf
                 <div class="row">
                     <div class="col-sm-3">
-                        {{-- <input type="text" name="perusahaan_id" value="{{$perusahaan->id}}" hidden> --}}
+                        
                         <div class="form-group">
                           <label for="name" class="col-form-label">Nama Perusahaan:</label>
-                          {{-- <input type="text" class="form-control" name="perusahaan" value="{{$perusahaan->nama}}" disabled> --}}
+                       
                         </div>
                     </div>
                     <div class="col-sm-5">
@@ -100,3 +105,29 @@
 @section('js')
 
 @stop
+@section("addJavascript")
+<script src="{{ asset('js/sweetalert.min.js') }}"></script>
+<script>
+    confirmDelete = function(button) {
+        var url = $(button).data('url');
+        swal({
+            'title' : 'Konfirmasi Hapus Perusahaan',
+            'text' : 'Apakah kamu yakin?',
+            'dangermode' : 'true',
+            'buttons' : true
+        }).then(function(value) {
+            if (value) {
+                window.location = url;
+            }
+        })
+    }
+    
+   public function mytable()
+   {
+    $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+   }
+
+</script>
+@endsection

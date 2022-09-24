@@ -47,6 +47,7 @@
                         <td>{{$p->kodepos}}</td>
                         <td>{{$p->npwp}}</td>
                         <td>{{$p->pemberi_kerja}}</td>
+                        <td></td>
                         <td>
                             <a href="#" class="btn btn-primary" data-toggle="modal" data-target=".bd-edit-modal-lg{{$p->id}}">Edit</a>
                             <a href="{{ route('perintah.kerja', ['id' => $p->id]) }}" class="btn btn-success">Detail</a>
@@ -108,18 +109,6 @@
                           <input type="text" class="form-control" name="pemberi_kerja">
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                          <label for="name" class="col-form-label">Metode Pemjbayaran:</label>
-                          <input type="text" class="form-control" name="metode_pembayaran">
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                          <label for="name" class="col-form-label">No Rekening:</label>
-                          <input type="text" class="form-control" name="norek">
-                        </div>
-                    </div>
                     <div class="col-sm-12">
                         <div class="form-group">
                           <label for="name" class="col-form-label">Alamat:</label>
@@ -140,12 +129,6 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                          <label for="name" class="col-form-label">Kecamatan:</label>
-                          <input type="text" class="form-control" name="kecamatan">
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
                           <label for="name" class="col-form-label">Kode Pos:</label>
                           <input type="text" class="form-control" name="kodepos">
                         </div>
@@ -154,13 +137,6 @@
                         <div class="form-group">
                           <label for="name" class="col-form-label">Invoice:</label>
                           <input type="text" class="form-control" name="invoice">
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <label for="name" class="col-form-label">File Lampiran:</label>
-                        <div class="custom-file">
-                            <input name="lampiran" type="file" class="custom-file-input" id="inputGroupFile01">
-                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                         </div>
                     </div>
                 </div>

@@ -19,7 +19,7 @@ class Perintah_kerja extends Model
 
     public function Perusahaan()
     {
-        return $this->belongsTo(Perusahaan::class, 'id_perusahaan', 'id');
+        return $this->belongsTo(Perusahaan::class, 'perusahaan_id');
     }
     // protected $fillable = [
 
