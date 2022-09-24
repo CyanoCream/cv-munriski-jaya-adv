@@ -93,6 +93,34 @@ class PerusahaanController extends Controller
 
     }
 
+    public function berita($id)
+    {
+        $perusahaan = Perusahaan :: where('id',$id)->get();
+        $perintah_kerja = Perintah_kerja::with('perusahaan')->where('perusahaan_id', $id)->get();
+        $jumlah = Perintah_kerja::with('perusahaan')->where('perusahaan_id', $id)->sum('total');
+        // $perusahaan = Perusahaan::find();
+        // dd($perusahaan);
+        // dd($perintah_kerja);
+        // dd($jumlah);
+
+        return view('print.berita_acara', compact('perintah_kerja','perusahaan','jumlah'))->with('i');
+
+    }
+
+    public function invoice($id)
+    {
+        $perusahaan = Perusahaan :: where('id',$id)->get();
+        $perintah_kerja = Perintah_kerja::with('perusahaan')->where('perusahaan_id', $id)->get();
+        $jumlah = Perintah_kerja::with('perusahaan')->where('perusahaan_id', $id)->sum('total');
+        // $perusahaan = Perusahaan::find();
+        // dd($perusahaan);
+        // dd($perintah_kerja);
+        // dd($jumlah);
+
+        return view('print.invoice', compact('perintah_kerja','perusahaan','jumlah'))->with('i');
+
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

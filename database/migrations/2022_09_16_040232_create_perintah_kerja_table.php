@@ -17,8 +17,10 @@ class CreatePerintahKerjaTable extends Migration
             $table->id();
             $table->bigInteger('perusahaan_id')->unsigned();
             $table->foreign('perusahaan_id')->references('id')->on('perusahaan');
+            $table->string('merek')->nullable;
             $table->string('deskripsi');
             $table->integer('kuantitas');
+            $table->string('jenis')->default('pcs');
             $table->char('harga_unit');
             $table->char('total');
             $table->timestamps();

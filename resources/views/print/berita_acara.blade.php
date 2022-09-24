@@ -19,7 +19,7 @@
       </div> -->
       <div id="project">
         <div>Yang Bertanda tangan dibawah ini:</div>
-        <p>Hari/Tgl:  14-Oct-21</p><br>
+        <p>Hari/Tgl: <strong id="tanggalwaktu"></strong></p><br>
 
         <p>1. Nama : teki Sugiarto</p> <div class="clearfix" id="company" style="padding-left: 450px;"> <strong> PT Djarum </strong></div>
         <div>Bertindak untuk dan atas nama :</div>
@@ -153,7 +153,7 @@ h1 {
 #project span {
   color: #5D6975;
   text-align: right;
-  width: 52px;
+  width: 89px;
   margin-right: 10px;
   display: inline-block;
   font-size: 0.8em;
@@ -237,7 +237,22 @@ table td.grand {
 
     @stop
 
-    @section('js')
+@section('addJavascript')
 
-    @stop
+<script>
+var tw = new Date();
+if (tw.getTimezoneOffset() == 0) (a=tw.getTime() + ( 7 *60*60*1000))
+else (a=tw.getTime());
+tw.setTime(a);
+var tahun= tw.getFullYear ();
+var hari= tw.getDay ();
+var bulan= tw.getMonth ();
+var tanggal= tw.getDate ();
+var hariarray=new Array("Minggu,","Senin,","Selasa,","Rabu,","Kamis,","Jum'at,","Sabtu,");
+var bulanarray=new Array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");
+document.getElementById("tanggalwaktu").innerHTML = +" "+tanggal+" "+bulanarray[bulan]+" "+tahun;
+</script>
+
+@stop
+
 

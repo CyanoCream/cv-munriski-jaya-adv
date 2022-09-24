@@ -15,8 +15,10 @@
             <tr>
                 <th scope="col">No</th>
                 <th scope="col">Dari Perusahaan</th>
+                <th scope="col">Merk</th>
                 <th scope="col">Deskripsi</th>
                 <th scope="col">kuantitas</th>
+                <th scope="col">Dalam Bentuk</th>
                 <th scope="col">Harga Unit</th>
                 <th scope="col">Total</th>
                 <th scope="col">Action</th>
@@ -32,7 +34,9 @@
                     <td scope="col">{{++$i}}</td>
                     <td>{{$perintah->perusahaan->nama}}</td>
                     <td>{{$perintah->deskripsi}}</td>
+                    <td>Merk</td>
                     <td>{{$perintah->kuantitas}}</td>
+                    <td>Dalam Bentuk</td>
                     <td>IDR{{$perintah->harga_unit}}</td>
                     <td>IDR{{$perintah->total}} </td>
                     <td> <a href="#" class="btn btn-primary" data-toggle="modal" data-target=".bd-edit-modal-lg">Edit</a>
@@ -70,10 +74,27 @@
                           <input name="deskripsi" type="text" class="form-control">
                         </div>
                     </div>
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                          <label for="name" class="col-form-label">Merk:</label>
+                          <input name="merek" type="text" class="form-control">
+                        </div>
+                    </div>
                     <div class="col-sm-2">
                         <div class="form-group">
                           <label for="Kuantitas" class="col-form-label">Kuantitas:</label>
                           <input name="kuantitas" type="number" class="form-control" min="1">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                          <label for="" class="col-form-label">Dalam Bentuk:</label>
+                          <label for="jenis" class="col-form-label">Status Pembayaran:</label>
+                          <select name="jenis" id="jenis">
+                              <option value="PCS">PCS</option>  
+                              <option value="LUSIN">LUSIN</option>
+                              <option value="PACK">PACK</option>
+                              </select>
                         </div>
                     </div>
                     <div class="col-sm-2">

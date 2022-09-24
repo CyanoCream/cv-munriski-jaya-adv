@@ -17,12 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/invoice', function () {
-    return view('print.invoice');
-});
-Route::get('/berita_acara', function () {
-    return view('print.berita_acara');
-});
+// Route::get('/invoice', function () {
+//     return view('print.invoice');
+// });
+// Route::get('/berita_acara', function () {
+//     return view('print.berita_acara');
+// });
 // Route::get('/kwitansi', function () {
 //     return view('print.kwitansi');
 // });
@@ -46,6 +46,8 @@ Route::get('/data/perintah_kerja', 'App\Http\Controllers\PerintahkerjaController
 Route::post('/data/perintah_kerja/create', 'App\Http\Controllers\PerintahkerjaController@create')->name('perintah.kerja.create');
 Route::get('/data/pesan/{id}', 'App\Http\Controllers\PerusahaanController@show')->name('pesan');
 Route::get('/kwitansi/{id}', 'App\Http\Controllers\PerusahaanController@kwitansi')->name('kwitansi');
+Route::get('/berita/{id}', 'App\Http\Controllers\PerusahaanController@berita')->name('berita');
+Route::get('/invoice/{id}', 'App\Http\Controllers\PerusahaanController@invoice')->name('invoice');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
