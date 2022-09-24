@@ -22,7 +22,7 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                          <label for="name" class="col-form-label">Nama:</label>
+                          <label for="name" class="col-form-label">Nama Perusahaan:</label>
                           <input type="text" class="form-control" name="nama" value="{{$p->nama}}">
                         </div>
                     </div>

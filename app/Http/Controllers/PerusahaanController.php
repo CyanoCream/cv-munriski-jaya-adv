@@ -98,12 +98,16 @@ class PerusahaanController extends Controller
         $perusahaan = Perusahaan :: where('id',$id)->get();
         $perintah_kerja = Perintah_kerja::with('perusahaan')->where('perusahaan_id', $id)->get();
         $jumlah = Perintah_kerja::with('perusahaan')->where('perusahaan_id', $id)->sum('total');
+        $ppn = $jumlah / 100 * 10;
+        $netto = $jumlah + $ppn;
         // $perusahaan = Perusahaan::find();
         // dd($perusahaan);
         // dd($perintah_kerja);
         // dd($jumlah);
+        // dd($ppn);
+        // dd($netto);
 
-        return view('print.berita_acara', compact('perintah_kerja','perusahaan','jumlah'))->with('i');
+        return view('print.berita_acara', compact('perintah_kerja','perusahaan','jumlah','ppn','netto'))->with('i');
 
     }
 
@@ -112,12 +116,16 @@ class PerusahaanController extends Controller
         $perusahaan = Perusahaan :: where('id',$id)->get();
         $perintah_kerja = Perintah_kerja::with('perusahaan')->where('perusahaan_id', $id)->get();
         $jumlah = Perintah_kerja::with('perusahaan')->where('perusahaan_id', $id)->sum('total');
+        $ppn = $jumlah / 100 * 10;
+        $netto = $jumlah + $ppn;
         // $perusahaan = Perusahaan::find();
         // dd($perusahaan);
         // dd($perintah_kerja);
         // dd($jumlah);
+        // dd($ppn);
+        // dd($netto);
 
-        return view('print.invoice', compact('perintah_kerja','perusahaan','jumlah'))->with('i');
+        return view('print.invoice', compact('perintah_kerja','perusahaan','jumlah','ppn','netto'))->with('i');
 
     }
 

@@ -35,10 +35,12 @@ class PerintahkerjaController extends Controller
         $perintah->deskripsi = $request->deskripsi;
         $perintah->kuantitas = $request->kuantitas;
         $perintah->harga_unit = $request->harga_unit;
-        $perintah->merek = $request->merk;
+        $perintah->merek = $request->merek;
         $perintah->jenis = $request->jenis;
         $perintah->total = $request->kuantitas * $request->harga_unit;
         $perintah->save();
+
+        return redirect()->back();
     }
 
     /**

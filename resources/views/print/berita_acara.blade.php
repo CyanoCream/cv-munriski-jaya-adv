@@ -21,23 +21,23 @@
         <div>Yang Bertanda tangan dibawah ini:</div>
         <p>Hari/Tgl: <strong id="tanggalwaktu"></strong></p><br>
 
-        <p>1. Nama : teki Sugiarto</p> <div class="clearfix" id="company" style="padding-left: 450px;"> <strong> PT Djarum </strong></div>
+        <p>1. Nama : {{$perusahaan[0]->pemberi_kerja}}</p> <div class="clearfix" id="company" style="padding-left: 250px;"> <strong> {{$perusahaan[0]->nama}} </strong></div>
         <div>Bertindak untuk dan atas nama :</div>
         <div>Yang Selanjutnya disebut dengan <b style=" text-decoration: underline;">PIHAK KEDUA</b></div>
         <p>2. Nama : Muncarno</p>
         <div>   Alamat : Jimbaran. 05/08 Gondoriyo, Bergas. Kab Semarang, 50552</div>
         <div style="padding-top:20px;">Bertindak untuk dan atas nama <b>CV.Munrizky Jaya</b></div>
         <div>Yang Selanjutnya disebut dengan <b style=" text-decoration: underline;">PIHAK KEDUA</b></div>
-
+        <div style="padding-bottom:30px;">   Dengan ini setuju sepakat untuk melakukan Penyerahan pekerjaan dengan speksifikasi sebagai berikut:</div>
       </div>
     </header>
     <main>
-      <div style="padding-bottom:10px;">   Dengan ini setuju sepakat untuk melakukan Penyerahan pekerjaan dengan speksifikasi sebagai berikut:</div>
+      
       <table>
         <thead>
           <tr>
-            <th class="service">NO</th>
-            <th class="desc">MERK</th>
+            <th class="">NO</th>
+            <th class="">MERK</th>
             <th>Description</th>
             <th>Total QTY</th>
             <th>Price</th>
@@ -45,48 +45,42 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td class="service">Design</td>
-            <td class="desc">Creating a recognizable design solution based on the company's existing visual identity</td>
-            <td class="unit">$40.00</td>
-            <td class="qty">26</td>
-            <td class="total">$1,040.00</td>
+        @foreach ($perintah_kerja as $p) 
+        <tr>
+            <td>{{++$i}}</td>
+            <td class="">{{$p->merk}}</td>
+            <td class="">{{$p->deskripsi}}</td>
+            <td class="">Rp.{{$p->harga_unit}}</td>
+            <td class="">{{$p->kuantitas}}</td>
+            <td class="">{{$p->total}}</td>
           </tr>
-          <tr>
-            <td>1</td>
-            <td class="service">Design</td>
-            <td class="desc">Creating a recognizable design solution based on the company's existing visual identity</td>
-            <td class="unit">$40.00</td>
-            <td class="qty">26</td>
-            <td class="total">$1,040.00</td>
-          </tr>
-          <!-- <tr>
-            <td colspan="4"></td>
-            <td class="total"></td>
-          </tr> -->
+          @endforeach
+          
           <tr>
             <td></td>
             <td colspan="4" class="grand total">Total Spk Bruto <br>
-              Nilai Dpp <br>
+              Nilai DPP <br>
+              PPN 10% <br>
               Total SPK Netto </td>
-            <td class="grand total">$5,200.00<br>
-              $1,300.00 <br>
-              $6,500.00</td>
+            <td class="grand total">Rp.{{$jumlah}}<br>
+              Rp.{{$jumlah}} <br>
+              Rp.{{$ppn}}<br>
+              Rp.{{$netto}}</td>
           </tr>
+          
         </tbody>
       </table>
       <div id="notices">
-        <p style="margin-left:150px;margin-right:450px;border-style: double;"><b>No.SPK :SPK-21/9/4SLT/032</b> </p>
+        <p style="margin-left:150px;margin-right:450px;border-style: double;"><b>No.SPK :{{$perusahaan[0]->nospk}}</b> </p>
         <div>pekerjaan tersebut kepada <b>Pihak Pertama. </b>dan <b>Pihak Kedua</b> telah menerima hasil pekerjaan tersebut.
         <p>sesuai dengan</p></div>
         <div >Demikian Berita Acara ini dibuat untuk dapat dipergunakan sebagaimana mestinya.</div>
       </div>
     </main>
-
+<br>
     <div style="margin-top: 10px; display:flex; justify-content: space-between; flex-direction: row;">
-      <span><p> Customer </p> <p><b>PT Djarum</b></p><p style="padding-top:50px;">(             )</p></span>
-      <span><p>Muncarno</p><p>CV Munrizky Jaya</p><p style="padding-top:50px;">PT Djarum</p></span>
+      <span>PIHAK PERTAMA <p><b>{{$perusahaan[0]->nama}}</b></p><p style="padding-top:50px;">({{$perusahaan[0]->pemberi_kerja}})</p></span>
+      <span>PIHAK KEDUA<p>CV Munrizky Jaya</p><p style="padding-top:50px;">MUNCARNO</p></span>
     </div>
     </div>
   
@@ -186,7 +180,7 @@ table td {
 }
 
 table th {
-  padding: 5px 20px;
+  padding: 20px;
   color: #5D6975;
   border-bottom: 1px solid #C1CED9;
   white-space: nowrap;

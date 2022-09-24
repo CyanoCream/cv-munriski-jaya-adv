@@ -65,7 +65,7 @@
                         
                         <div class="form-group">
                           <label for="name" class="col-form-label">Nama Perusahaan:</label>
-                       
+                       merk
                         </div>
                     </div>
                     <div class="col-sm-5">

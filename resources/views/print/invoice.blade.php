@@ -34,21 +34,24 @@
           @foreach ($perintah_kerja as $p)
           <tr>
             <td>1</td>
-            <td class="service">Design</td>
+            <td class="service">{{$p->merek}}</td>
             <td class="desc">{{$p->deskripsi}}</td>
             <td class="unit">Rp.{{$p->harga_unit}}</td>
             <td class="qty">{{$p->kuantitas}}</td>
-            <td class="total">{{$p->harga_unit * $p->kuantitas}}</td>
+            <td class="qty">{{$p->jenis}}</td>
+            <td class="total">Rp.{{$p->harga_unit * $p->kuantitas}}</td>
           </tr>
           @endforeach
           <tr>
             <td></td>
             <td colspan="4" class="grand total">Total Spk Bruto <br>
-              Nilai Dpp <br>
+              Nilai DPP <br>
+              PPN 10% <br>
               Total SPK Netto </td>
-            <td class="grand total">$5,200.00<br>
-              $1,300.00 <br>
-              $6,500.00</td>
+            <td class="grand total">Rp.{{$jumlah}}<br>
+              Rp.{{$jumlah}} <br>
+              Rp.{{$ppn}}<br>
+              Rp.{{$netto}}</td>
           </tr>
         </tbody>
       </table>
@@ -60,8 +63,8 @@
 
 
     <div style="margin-top: 10px; display:flex; justify-content: space-between; flex-direction: row;">
-      <span>Customer</span>
-      <span>Muncarno</span>
+      <span style="margin-left:10px;">Customer</span>
+      <span style="margin-right:10px;">Muncarno</span>
     </div>
     </div>
 @stop

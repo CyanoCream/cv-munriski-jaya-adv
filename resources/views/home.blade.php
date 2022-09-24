@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<div>test</div>
+<div>
+    Ini Mau diisi apa
+</div>
 @endsection
