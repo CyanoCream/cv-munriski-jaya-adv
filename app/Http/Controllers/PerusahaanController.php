@@ -23,6 +23,7 @@ class PerusahaanController extends Controller
         return view ('perusahaan.index', compact('perusahaan'));
 
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -66,15 +67,29 @@ class PerusahaanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
-        $perusahaan = Perusahaan :: all();
-        $perintah_kerja = Perintah_kerja::with('perusahaan')->get();
+        $perusahaan = Perusahaan :: where('id',$id)->get();
+        $perintah_kerja = Perintah_kerja::with('perusahaan')->where('perusahaan_id', $id)->get();
         // $perusahaan = Perusahaan::find();
         // dd($perusahaan);
         // dd($perintah_kerja);
 
-        return view('perintah_kerja.pesan', compact('perintah_kerja'));
+        return view('perintah_kerja.pesan', compact('perintah_kerja','perusahaan'))->with('i');
+
+    }
+
+    public function kwitansi($id)
+    {
+        $perusahaan = Perusahaan :: where('id',$id)->get();
+        $perintah_kerja = Perintah_kerja::with('perusahaan')->where('perusahaan_id', $id)->get();
+        $jumlah = Perintah_kerja::with('perusahaan')->where('perusahaan_id', $id)->sum('total');
+        // $perusahaan = Perusahaan::find();
+        // dd($perusahaan);
+        // dd($perintah_kerja);
+        // dd($jumlah);
+
+        return view('print.kwitansi', compact('perintah_kerja','perusahaan','jumlah'))->with('i');
 
     }
 
@@ -101,19 +116,16 @@ class PerusahaanController extends Controller
         // dd($request);
         $perusahaan = Perusahaan::find($id);
         $perusahaan->invoice= $request->invoice;
-        $perusahaan->lampiran= 'ghhcgch';
         $perusahaan->nospk= $request->nospk;
         $perusahaan->nama= $request->nama;
         $perusahaan->alamat= $request->alamat;
         $perusahaan->tanggal= $request->tanggal;
         $perusahaan->provinsi= $request->provinsi;
         $perusahaan->kota= $request->kota;
-        $perusahaan->kecamatan= $request->kecamatan;
         $perusahaan->kodepos= $request->kodepos;
         $perusahaan->npwp= $request->npwp;
         $perusahaan->pemberi_kerja= $request->pemberi_kerja;
-        $perusahaan->metode_pembayaran= $request->metode_pembayaran;
-        $perusahaan->norek= $request->norek;
+        $perusahaan->status_pembayaran = $request->status_pembayaran;
         $perusahaan->save();
 
       return redirect()->back();

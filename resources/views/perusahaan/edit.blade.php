@@ -40,8 +40,17 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                          <label for="name" class="col-form-label">Pemberi Kerja:</label>
+                          <label for="name" class="col-form-label">Nama Pemberi Kerja:</label>
                           <input type="text" class="form-control" name="pemberi_kerja" value="{{$p->pemberi_kerja}}">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="status_pembayaran" class="col-form-label">Status Pembayaran:</label>
+                              <select name="status_pembayaran" id="status_pembayaran">
+                              <option value="Belum dibayar">Belum Dibayar</option>  
+                              <option value="Lunas">Lunas</option>
+                              </select>
                         </div>
                     </div>
                     <div class="col-sm-12">

@@ -28,7 +28,7 @@
                         <th scope="col">Kota</th>
                         <th scope="col">Kode Pos</th>
                         <th scope="col">NPWP</th>
-                        <th scope="col">Pemberi Kerja</th>
+                        <th scope="col">Nama Pemberi Kerja</th>
                         <th scope="col">Status Pembayaran</th>
                         <th scope="col">Action</th>
                     </tr>
@@ -47,7 +47,7 @@
                         <td>{{$p->kodepos}}</td>
                         <td>{{$p->npwp}}</td>
                         <td>{{$p->pemberi_kerja}}</td>
-                        <td></td>
+                        <td>{{$p->status_pembayaran}}</td>
                         <td>
                             <a href="#" class="btn btn-primary" data-toggle="modal" data-target=".bd-edit-modal-lg{{$p->id}}">Edit</a>
                             <a href="{{ route('pesan', ['id' => $p->id]) }}" class="btn btn-success">Detail</a>

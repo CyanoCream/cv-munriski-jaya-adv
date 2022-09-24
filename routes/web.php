@@ -23,9 +23,9 @@ Route::get('/invoice', function () {
 Route::get('/berita_acara', function () {
     return view('print.berita_acara');
 });
-Route::get('/kwitansi', function () {
-    return view('print.kwitansi');
-});
+// Route::get('/kwitansi', function () {
+//     return view('print.kwitansi');
+// });
 
 // Route::get('data/perusahaan', function () {
 //     return view('perusahaan.index');
@@ -44,7 +44,8 @@ Route::get('/data/perintah_kerja', function () {
 Route::post('/data/perintah_kerja', 'App\Http\Controllers\PerusahaanController@store_spk')->name('store.perintah.kerja');
 Route::get('/data/perintah_kerja', 'App\Http\Controllers\PerintahkerjaController@index')->name('perintah.kerja');
 Route::post('/data/perintah_kerja/create', 'App\Http\Controllers\PerintahkerjaController@create')->name('perintah.kerja.create');
-Route::get('/data/pesan', 'App\Http\Controllers\PerusahaanController@show')->name('pesan');
+Route::get('/data/pesan/{id}', 'App\Http\Controllers\PerusahaanController@show')->name('pesan');
+Route::get('/kwitansi/{id}', 'App\Http\Controllers\PerusahaanController@kwitansi')->name('kwitansi');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

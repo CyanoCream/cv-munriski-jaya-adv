@@ -4,28 +4,28 @@
 <div class="ml-5 mt-5 bg-transparent">
 <img src="{{asset('/images/LogoCV.jpeg')}}" width="300px" alt="">
 <h2 style="margin-top: 10px;">Kwitansi</h2><hr>
-<h2 style="margin-top: 0;">tanda terima</h2>
+<h2 style="margin-top: 0;">Tanda Terima</h2>
 
 <!-- isi Kwitansi -->
 <table>
     <tr>
     <td valign="top" > Telah Diterima Dari </td>
-    <td valign="top" > : PT. DJarum. </td>
+    <td valign="top" > : {{$perusahaan[0]->nama}} </td>
     </tr>
 
     <tr>
-    <td valign="top" > Taerbilang </td>
-    <td valign="top" > : Lima Ratus Dua Puluh Delapan Riu Rupiah.</td>
+    <td valign="top" > Terbilang </td>
+    <td valign="top" style="text-transform: uppercase;" > : {{Riskihajar\Terbilang\Facades\Terbilang::make($jumlah)}} Rupiah</td>
     </tr>
 
     <tr>
     <td valign="top" > Guna membayar </td>
-    <td valign="top" > : Pembayaran Invoice <span class="invoice"> MJ210821-002 </span></td>
+    <td valign="top" > : Pembayaran Invoice <span class="invoice ml-2"> {{$perusahaan[0]->invoice}} </span></td>
     </tr>
 
     <tr>
         <td valign="top" > Banyaknya uang </td>
-        <td valign="top" > : Rp. 528.000</td>
+        <td valign="top" > : Rp. {{$jumlah}}</td>
     </tr>
 </table>
 
@@ -34,7 +34,7 @@
 <div>
 
 	<div class="ttd">
-		Semarang, 22 Juni 2012<br/>
+		<p>Semarang, <span id="tanggalwaktu"></span></p><br/>
         <img class="tanda" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Tanda_tangan_bapak.png/899px-Tanda_tangan_bapak.png" alt="">
         <!-- fungsi p supaya ada jarak nya saja, bisa diganti pake style -->
         <p></p>
@@ -95,6 +95,20 @@
 
 @stop
 
-@section('js')
+@section('addJavascript')
+
+<script>
+var tw = new Date();
+if (tw.getTimezoneOffset() == 0) (a=tw.getTime() + ( 7 *60*60*1000))
+else (a=tw.getTime());
+tw.setTime(a);
+var tahun= tw.getFullYear ();
+var hari= tw.getDay ();
+var bulan= tw.getMonth ();
+var tanggal= tw.getDate ();
+var hariarray=new Array("Minggu,","Senin,","Selasa,","Rabu,","Kamis,","Jum'at,","Sabtu,");
+var bulanarray=new Array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");
+document.getElementById("tanggalwaktu").innerHTML = +" "+tanggal+" "+bulanarray[bulan]+" "+tahun;
+</script>
 
 @stop

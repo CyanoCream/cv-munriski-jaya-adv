@@ -9,7 +9,7 @@
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Tambah Data</button>
       </div>
     </div>
-    <p>Pemesanan</p>
+    <b>Pemesanan</p>
     <table class="table table-hover table-bordered">
         <thead class="thead-dark">
             <tr>
@@ -29,7 +29,7 @@
   
           
                 <tr>
-                    <td scope="col">1</td>
+                    <td scope="col">{{++$i}}</td>
                     <td>{{$perintah->perusahaan->nama}}</td>
                     <td>{{$perintah->deskripsi}}</td>
                     <td>{{$perintah->kuantitas}}</td>

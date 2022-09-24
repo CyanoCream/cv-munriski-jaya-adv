@@ -9,12 +9,11 @@
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Tambah Data</button>
       </div>
     </div>
-    <p>Pemesanan</p>
+    <b>Pemesanan Dari : {{$perusahaan[0]->nama}} </b>
     <table class="table table-hover table-bordered">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">No</th>
-                <th scope="col">Dari Perusahaan</th>
                 <th scope="col">Deskripsi</th>
                 <th scope="col">kuantitas</th>
                 <th scope="col">Harga Unit</th>
@@ -29,8 +28,7 @@
   
           
                 <tr>
-                    <td scope="col">1</td>
-                    <td>{{$perintah->perusahaan->nama}}</td>
+                    <td scope="col">{{ ++$i }}</td>
                     <td>{{$perintah->deskripsi}}</td>
                     <td>{{$perintah->kuantitas}}</td>
                     <td>IDR{{$perintah->harga_unit}}</td>

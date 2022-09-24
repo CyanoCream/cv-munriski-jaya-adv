@@ -19,7 +19,7 @@ class PerintahkerjaController extends Controller
         // dd($perusahaan);
         // dd($perintah_kerja);
 
-        return view('perintah_kerja.index', compact('perintah_kerja'));
+        return view('perintah_kerja.index', compact('perintah_kerja'))->with('i');
     }
 
     /**

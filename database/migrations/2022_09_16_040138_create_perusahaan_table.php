@@ -27,7 +27,7 @@ class CreatePerusahaanTable extends Migration
             $table->integer('kodepos')->nullable();
             $table->string('npwp')->nullable();
             $table->string('pemberi_kerja')->nullable();
-            $table->string('status_pembayaran')->default('belum');
+            $table->string('status_pembayaran')->default('belum dibayarkan');
            
 
         });
