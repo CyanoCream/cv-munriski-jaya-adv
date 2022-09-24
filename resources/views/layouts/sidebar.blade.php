@@ -31,13 +31,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/perusahaan" class="nav-link">
+                    <a href="/data/perusahaan" class="nav-link">
                         <i class="nav-icon fa-solid fa-building"></i>
                         <p>Data Perusahaan</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/data/perintah_kerja" class="nav-link">
+                    <a href="/data/pesan" class="nav-link">
                         <i class="nav-icon fa-solid fa-file-text "></i>
                         <p>Data Pesanan</p>
                     </a>

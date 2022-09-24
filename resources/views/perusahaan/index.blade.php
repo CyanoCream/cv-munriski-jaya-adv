@@ -50,7 +50,7 @@
                         <td></td>
                         <td>
                             <a href="#" class="btn btn-primary" data-toggle="modal" data-target=".bd-edit-modal-lg{{$p->id}}">Edit</a>
-                            <a href="{{ route('perintah.kerja', ['id' => $p->id]) }}" class="btn btn-success">Detail</a>
+                            <a href="{{ route('pesan', ['id' => $p->id]) }}" class="btn btn-success">Detail</a>
                             <a onclick="confirmDelete(this)" class="btn btn-danger" role="button" data-url="{{ route('delete.perusahaan', ['id' => $p->id]) }}">Delete</a>
                         </td>
                     </tr>

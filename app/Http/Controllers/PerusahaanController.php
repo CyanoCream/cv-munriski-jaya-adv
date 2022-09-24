@@ -66,21 +66,16 @@ class PerusahaanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
+        $perusahaan = Perusahaan :: all();
+        $perintah_kerja = Perintah_kerja::with('perusahaan')->get();
+        // $perusahaan = Perusahaan::find();
+        // dd($perusahaan);
+        // dd($perintah_kerja);
 
-        $perusahaan = Perusahaan::find($id);
-        // $spk = perintah_kerja::with('Perusahaan')
-        //     ->find($perusahaan_id = $id);
+        return view('perintah_kerja.pesan', compact('perintah_kerja'));
 
-        // $spk = Perintah_kerja::all();
-
-        // $spk = DB::table('perintah_kerja')
-        //     ->with('perusahaan_id', '=', $id)
-        //     ->get();
-        // $spk = perintah_kerja::with('perusahaan', 'perintah_kerja.perusahaan_id', '=', 'perusahaan.id')->get();
-// dd($spk);
-        return view('perintah_kerja.index', compact('perusahaan'/* , 'spk' */) );
     }
 
     /**

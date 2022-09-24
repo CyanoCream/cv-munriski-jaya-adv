@@ -44,6 +44,7 @@ Route::get('/data/perintah_kerja', function () {
 Route::post('/data/perintah_kerja', 'App\Http\Controllers\PerusahaanController@store_spk')->name('store.perintah.kerja');
 Route::get('/data/perintah_kerja', 'App\Http\Controllers\PerintahkerjaController@index')->name('perintah.kerja');
 Route::post('/data/perintah_kerja/create', 'App\Http\Controllers\PerintahkerjaController@create')->name('perintah.kerja.create');
+Route::get('/data/pesan', 'App\Http\Controllers\PerusahaanController@show')->name('pesan');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

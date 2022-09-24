@@ -20,7 +20,7 @@
 
     <tr>
     <td valign="top" > Guna membayar </td>
-    <td valign="top" > : Pembayaran</td>
+    <td valign="top" > : Pembayaran Invoice <span class="invoice"> MJ210821-002 </span></td>
     </tr>
 
     <tr>
@@ -30,7 +30,7 @@
 </table>
 
 <!-- ttd kanan bawah -->
-<div class="invoice">Sesuai Invoice  MJ210821-002</div><br>
+
 <div>
 
 	<div class="ttd">
@@ -63,9 +63,9 @@
     }
     .invoice{
         float:right;
-        width:25%;
+        /* width:25%; */
         display:block;
-        margin-right:-5px;
+        margin-right:46px;
 
     }
 

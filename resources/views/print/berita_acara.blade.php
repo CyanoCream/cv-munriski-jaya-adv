@@ -2,11 +2,12 @@
 
 @section('content')
 
-    {{-- <link rel="stylesheet" href="style.css" media="all" /> --}}
+   
     <!-- <link rel="stylesheet" href="https://cdn.usebootstrap.com/bootstrap/4.4.1/css/bootstrap.min.css"> -->
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
-
-
+<div class="stl">
+    <header>
+  <div>
       <div style="margin-bottom:40px;">
         <strong style=" text-decoration: underline; margin-left: 260px; "><b>BERITA ACARA SERAH TERIMA PEKERJAAN</b> </strong>
       </div>
@@ -87,10 +88,12 @@
       <span><p> Customer </p> <p><b>PT Djarum</b></p><p style="padding-top:50px;">(             )</p></span>
       <span><p>Muncarno</p><p>CV Munrizky Jaya</p><p style="padding-top:50px;">PT Djarum</p></span>
     </div>
-
+    </div>
+  
     @stop
 
-    @section('css')
+    @section('addCss')
+    <link rel="stylesheet" href="style.css" media="all" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <style>
@@ -105,7 +108,7 @@ a {
   text-decoration: underline;
 }
 
-body {
+.stl {
   position: relative;
   width: 21cm;
   height: 29.7cm;
@@ -220,7 +223,7 @@ table td.grand {
   font-size: 1.2em;
 }
 
-footer {
+/* footer {
   color: #5D6975;
   width: 100%;
   height: 30px;
@@ -229,7 +232,7 @@ footer {
   border-top: 1px solid #C1CED9;
   padding: 8px 0;
   text-align: center;
-}
+} */
     </style>
 
     @stop
