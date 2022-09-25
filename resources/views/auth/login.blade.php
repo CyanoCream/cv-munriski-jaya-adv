@@ -2,12 +2,12 @@
 
 @section('content')
 <div class="container">
+    <br><br><br>
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card"><div class="card-body">
                 <div class="card-header">{{ __('Login') }}</div>
-
-                <div class="card-body">
+                <br><br>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -39,7 +39,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
+                        <div class="row mb-3" id="remember">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -51,12 +51,14 @@
                             </div>
                         </div>
 
-                        <div class="row mb-0">
+                        <div class="row mb-0" id="log">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                            <center>    
+                                <button type="submit" class="btn-login btn-primary">
                                     {{ __('Login') }}
                                 </button>
-
+                            </center>
+<br>
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
@@ -68,6 +70,52 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div><br><br><br>
 </div>
+
+<style>
+    .row{
+        margin-top:20px;
+    }
+    #remember{
+        margin-top:8px;
+    }
+    #log{
+        margin-top:10px;
+    }
+    .container{
+        background-image: url('https://cutewallpaper.org/28/cool-tech-wallpaper-gifs/network-technology-wallpaper-network-optimization-motion-graphics-design.gif');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+    .container .card-body{
+        background-color:#f4f9ff;
+        border-radius:10px;
+        padding:50px;
+        margin:20px;
+        margin-right:35%;
+        margin-left:35%;
+    }
+    .btn-login{
+        align-items: center;
+        background-color:#012245;
+        padding:15px;
+        width:260px;
+        border:1px solid transparent;
+        border-radius:10px;
+        font-size:15px;
+        color:white;
+    }
+    .form-control{
+        padding:15px;
+        width:240px;
+        border-radius:10px;
+        border:1px solid transparent;
+    }
+    .card-header{
+        text-align:center;
+        font-size:20px;
+    }
+</style>
 @endsection
