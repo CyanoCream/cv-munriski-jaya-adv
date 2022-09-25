@@ -3,49 +3,53 @@
 @section('content')
 
 <div class="container">
-    <div class="d-flex">
-      <h2  class="p-2">Jenis Pekerjaan</h2>
-      <div class="ml-auto p-2">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Tambah Data</button>
+<br>
+<h2 class="p-2 text-center"> Jenis Pekerjaan </h2><br>
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <button type="button" class="btn" data-toggle="modal" data-target=".bd-example-modal-lg">Tambah Data</button>
+        <p>Pemesanan</p>
+        <div class="table-responsive pt-3">
+          <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Dari Perusahaan</th>
+                    <th scope="col">Merk</th>
+                    <th scope="col">Deskripsi</th>
+                    <th scope="col">kuantitas</th>
+                    <th scope="col">Dalam Bentuk</th>
+                    <th scope="col">Harga Unit</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($perintah_kerja as $perintah)
+                    <tr>
+                        <td scope="col">{{++$i}}</td>
+                        <td>{{$perintah->perusahaan->nama}}</td>
+                        <td>{{$perintah->deskripsi}}</td>
+                        <td>Merk</td>
+                        <td>{{$perintah->kuantitas}}</td>
+                        <td>Dalam Bentuk</td>
+                        <td>IDR{{$perintah->harga_unit}}</td>
+                        <td>IDR{{$perintah->total}} </td>
+                        <td>
+                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target=".bd-edit-modal-lg">Edit</a>
+                            <a onclick="confirmDelete(this)" class="btn btn-danger" role="button" data-url="#">Delete</a>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
-    <b>Pemesanan</p>
-    <table class="table table-hover table-bordered">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">No</th>
-                <th scope="col">Dari Perusahaan</th>
-                <th scope="col">Merk</th>
-                <th scope="col">Deskripsi</th>
-                <th scope="col">kuantitas</th>
-                <th scope="col">Dalam Bentuk</th>
-                <th scope="col">Harga Unit</th>
-                <th scope="col">Total</th>
-                <th scope="col">Action</th>
-            </tr>
-        </thead>
-        <tbody>
+  </div>
 
-          
-          @foreach($perintah_kerja as $perintah)
-  
-          
-                <tr>
-                    <td scope="col">{{++$i}}</td>
-                    <td>{{$perintah->perusahaan->nama}}</td>
-                    <td>{{$perintah->deskripsi}}</td>
-                    <td>Merk</td>
-                    <td>{{$perintah->kuantitas}}</td>
-                    <td>Dalam Bentuk</td>
-                    <td>IDR{{$perintah->harga_unit}}</td>
-                    <td>IDR{{$perintah->total}} </td>
-                    <td> <a href="#" class="btn btn-primary" data-toggle="modal" data-target=".bd-edit-modal-lg">Edit</a>
-                            <a onclick="confirmDelete(this)" class="btn btn-danger" role="button" data-url="#">Delete</a></td>
-
-                </tr>
-                @endforeach
-        </tbody>
-    </table>
+</div>
 
 <!-- Add -->
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">

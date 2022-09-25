@@ -4,64 +4,61 @@
 
 <div class="container-fluid ml-3">
 
-    <div class="">
-        <h2  class="p-2 text-center"> Input Surat Perintah Kerja </h2>
-        <div class="ml-auto p-2">
-
+    <br>
+<h2 class="p-2 text-center"> Input Surat Perintah Kerja </h2><br>
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <button type="button" class="btn" data-toggle="modal" data-target=".bd-example-modal-lg">Tambah Data</button>
+        <p>Dari :</p>
+        <div class="table-responsive pt-3">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">No</th>
+                <th scope="col">No SPK</th>
+                <th scope="col">No Invoice</th>
+                <th scope="col">Tanggal</th>
+                <th scope="col">Nama Perusahaan</th>
+                <th scope="col">Alamat</th>
+                <th scope="col">Provinsi</th>
+                <th scope="col">Kota</th>
+                <th scope="col">Kode Pos</th>
+                <th scope="col">NPWP</th>
+                <th scope="col">Nama Pemberi Kerja</th>
+                <th scope="col">Status Pembayaran</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+                @foreach ( $perusahaan as $p )
+                <tr>
+                    <td scope="row">{{$loop->index + 1}}</td>
+                    <td>{{$p->nospk}}</td>
+                    <td>{{$p->invoice}}</td>
+                    <td>{{ date('d F y', strtotime($p->tanggal)) }}</td>
+                    <td>{{$p->nama}}</td>
+                    <td>{{$p->alamat}}</td>
+                    <td>{{$p->provinsi}}</td>
+                    <td>{{$p->kota}}</td>
+                    <td>{{$p->kodepos}}</td>
+                    <td>{{$p->npwp}}</td>
+                    <td>{{$p->pemberi_kerja}}</td>
+                    <td>{{$p->status_pembayaran}}</td>
+                    <td>
+                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target=".bd-edit-modal-lg{{$p->id}}">Edit</a>
+                        <a href="{{ route('pesan', ['id' => $p->id]) }}" class="btn btn-success">Detail</a>
+                        <a onclick="confirmDelete(this)" class="btn btn-danger" role="button" data-url="{{ route('delete.perusahaan', ['id' => $p->id]) }}">Delete</a>
+                    </td>
+                </tr>
+                @include('perusahaan.edit')
+                @endforeach
+            </tbody>
+          </table>
         </div>
       </div>
-    <div class="row">
-        <div class="col-1"> </div>
-        <div class="col-10">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Tambah Data</button>
-            <p>Dari :</p>
-            <table class="table table-bordered " style="padding-right: 20%" id="myTable">
-                <thead class="thead-dark " >
-                    <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">No SPK</th>
-                        <th scope="col">No Invoice</th>
-                        <th scope="col">Tanggal</th>
-                        <th scope="col">Nama Perusahaan</th>
-                        <th scope="col">Alamat</th>
-                        <th scope="col">Provinsi</th>
-                        <th scope="col">Kota</th>
-                        <th scope="col">Kode Pos</th>
-                        <th scope="col">NPWP</th>
-                        <th scope="col">Nama Pemberi Kerja</th>
-                        <th scope="col">Status Pembayaran</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                   @foreach ( $perusahaan as $p )
-                    <tr>
-                        <td scope="row">{{$loop->index + 1}}</td>
-                        <td>{{$p->nospk}}</td>
-                        <td>{{$p->invoice}}</td>
-                        <td>{{ date('d F y', strtotime($p->tanggal)) }}</td>
-                        <td>{{$p->nama}}</td>
-                        <td>{{$p->alamat}}</td>
-                        <td>{{$p->provinsi}}</td>
-                        <td>{{$p->kota}}</td>
-                        <td>{{$p->kodepos}}</td>
-                        <td>{{$p->npwp}}</td>
-                        <td>{{$p->pemberi_kerja}}</td>
-                        <td>{{$p->status_pembayaran}}</td>
-                        <td>
-                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target=".bd-edit-modal-lg{{$p->id}}">Edit</a>
-                            <a href="{{ route('pesan', ['id' => $p->id]) }}" class="btn btn-success">Detail</a>
-                            <a onclick="confirmDelete(this)" class="btn btn-danger" role="button" data-url="{{ route('delete.perusahaan', ['id' => $p->id]) }}">Delete</a>
-                        </td>
-                    </tr>
-                    @include('perusahaan.edit')
-                    @endforeach
-                </tbody>
-            </table>
-
-        </div>
-
     </div>
+  </div>
 
 </div>
 

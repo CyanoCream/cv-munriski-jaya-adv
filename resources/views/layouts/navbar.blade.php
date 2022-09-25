@@ -9,6 +9,18 @@
             <a {{-- href="{{route('dashboard')}}" --}} class="nav-link">Dashboard</a>
         </li>
     </ul>
+    <ul class="navbar-nav mr-lg-2">
+          <li class="nav-item nav-search d-none d-lg-block">
+            <div class="input-group" style="margin-left:800px;">
+              <div class="input-group-prepend hover-cursor" id="navbar-search-icon" style="border:1px solid #7497c6; border-radius:20px;">
+                <span class="input-group-text" style="background-color:transparent; border-color:transparent;" id="search">
+                  <i class="fa fa-search" style="color:#5276a2;"></i>
+                </span>
+                <input style="background-color:transparent; border-color:transparent;" type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
+              </div>
+            </div>
+          </li>
+        </ul>
 
     {{-- <!-- SEARCH FORM -->
     <form class="form-inline ml-3">
