@@ -6,11 +6,21 @@
 
     <br>
 <h2 class="p-2 text-center"> Input Surat Perintah Kerja </h2><br>
+<p class="ml-3">Dari :</p>
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <button type="button" class="btn" data-toggle="modal" data-target=".bd-example-modal-lg">Tambah Data</button>
-        <p>Dari :</p>
+        <div class="input-group" {{-- style="margin-left:600px;" --}}>
+            <form action="{{route('perusahaan')}}" method="get">
+                @csrf
+                <div class="input-group-prepend hover-cursor" id="navbar-search-icon" style="border:1px solid #7497c6; border-radius:20px;">
+                    <input name="cari" style="background-color:transparent; border-color:transparent;" type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
+                    <button type="submit" class="fa fa-search"  style="background-color:transparent; border-color:transparent; color:#5276a2;"></button>
+                </div>
+            </form>
+            <button type="button" class="btn-group ml-auto btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Tambah Data</button>
+        </div>
+
         <div class="table-responsive pt-3">
           <table class="table table-bordered">
             <thead>
@@ -44,11 +54,33 @@
                     <td>{{$p->kodepos}}</td>
                     <td>{{$p->npwp}}</td>
                     <td>{{$p->pemberi_kerja}}</td>
-                    <td>{{$p->status_pembayaran}}</td>
+                        @if ($p->status_pembayaran == 'Lunas')
+                        <td class="text-success">
+                            <b><i class="fa fa-check-circle mr-1" aria-hidden="true"></i>{{$p->status_pembayaran}}</b>
+                        </td>
+                        @else
+                        <td class="text-danger">
+                            <b><i class="fa fa-times-circle mr-1" aria-hidden="true"></i>{{$p->status_pembayaran}}</b>
+                        </td>
+                        @endif
                     <td>
-                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target=".bd-edit-modal-lg{{$p->id}}">Edit</a>
-                        <a href="{{ route('pesan', ['id' => $p->id]) }}" class="btn btn-success">Detail</a>
-                        <a onclick="confirmDelete(this)" class="btn btn-danger" role="button" data-url="{{ route('delete.perusahaan', ['id' => $p->id]) }}">Delete</a>
+                        <!-- Example single danger button -->
+                        <div class="btn-group">
+                            <a href="#" data-toggle="dropdown" class="m-2">
+                                <i class="fa fa-bars" aria-hidden="true"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ route('pesan', ['id' => $p->id]) }}">
+                                    <i class="fa fa-asterisk" aria-hidden="true"></i> detail</a>
+                                <a class="dropdown-item" href="{{route('invoice', ['id'=>$p->id])}}">
+                                    <i class="fa fa-print" aria-hidden="true"></i> print</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target=".bd-edit-modal-lg{{$p->id}}">
+                                    <i class="fa fa-pencil" aria-hidden="true"></i> edit</a>
+                                <a href="#" onclick="confirmDelete(this)" class="dropdown-item" data-url="{{ route('delete.perusahaan', ['id' => $p->id]) }}">
+                                    <i class="fa fa-trash" aria-hidden="true"></i> delete</a>
+                            </div>
+                        </div>
                     </td>
                 </tr>
                 @include('perusahaan.edit')
@@ -153,13 +185,14 @@
 
 @section("addJavascript")
 <script src="{{ asset('js/sweetalert.min.js') }}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script>
     confirmDelete = function(button) {
         var url = $(button).data('url');
         swal({
-            'title' : 'Konfirmasi Hapus Perusahaan',
-            'text' : 'Apakah kamu yakin?',
-            'dangermode' : 'true',
+            'title': 'Konfirmasi Hapus k',
+            'text' : 'Apakah kamu yakin ingin menghapus data ini?',
+            'dangerMode' : true,
             'buttons' : true
         }).then(function(value) {
             if (value) {
@@ -167,7 +200,7 @@
             }
         })
     }
-    
+
    public function mytable()
    {
     $(document).ready( function () {

@@ -91,7 +91,12 @@ class PerintahkerjaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pk = Perintah_kerja::find($id);
+        $pk->total = $request->kuantitas * $request->harga_unit;
+        $pk->update($request->all());
+        $pk->save();
+
+        return redirect()->back();
     }
 
     /**

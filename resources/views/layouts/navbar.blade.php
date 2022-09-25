@@ -9,7 +9,7 @@
             <a {{-- href="{{route('dashboard')}}" --}} class="nav-link">Dashboard</a>
         </li>
     </ul>
-    <ul class="navbar-nav mr-lg-2">
+    {{-- <ul class="navbar-nav mr-lg-2">
           <li class="nav-item nav-search d-none d-lg-block">
             <div class="input-group" style="margin-left:800px;">
               <div class="input-group-prepend hover-cursor" id="navbar-search-icon" style="border:1px solid #7497c6; border-radius:20px;">
@@ -20,7 +20,7 @@
               </div>
             </div>
           </li>
-        </ul>
+        </ul> --}}
 
     {{-- <!-- SEARCH FORM -->
     <form class="form-inline ml-3">

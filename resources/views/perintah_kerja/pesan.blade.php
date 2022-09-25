@@ -2,7 +2,8 @@
 
 @section('content')
 
-<div class="container">
+<a href="#" id="print" onclick="javascript printlayer('div-id-name')">Print T</a>
+<div class="container" id="div-id-name">
 
   <h2 class="p-2 text-center"> Jenis Pekerjaan </h2>
     <br>
@@ -27,25 +28,36 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($perintah_kerja as $perintah)     
+                    @foreach($perintah_kerja as $perintah)
                         <tr>
                             <td scope="col">{{ ++$i }}</td>
                             <td scope="col">{{ $perintah->merek }}</td>
                             <td>{{$perintah->deskripsi}}</td>
                             <td>{{$perintah->kuantitas}}</td>
                             <td scope="col">{{ $perintah->jenis }}</td>
-                            <td>IDR{{$perintah->harga_unit}}</td>
-                            <td>IDR{{$perintah->total}} </td>
-                            <td> <a href="#" class="btn btn-primary" data-toggle="modal" data-target=".bd-edit-modal-lg">Edit</a>
-                                    <a onclick="confirmDelete(this)" class="btn btn-danger" role="button" data-url="#">Delete</a></td>
-
+                            <td>Rp.{{$perintah->harga_unit}}</td>
+                            <td>Rp.{{$perintah->total}} </td>
+                            <td>
+                            <div class="btn-group">
+                                <a href="#" data-toggle="dropdown" class="m-2">
+                                    <i class="fa fa-bars" aria-hidden="true"></i>
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target=".bd-edit-modal-lg{{$perintah->id}}">
+                                        <i class="fa fa-pencil" aria-hidden="true"></i> edit</a>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fa fa-trash" aria-hidden="true"></i> delete</a>
+                                </div>
+                            </div>
+                            </td>
                         </tr>
+                        @include('perintah_kerja.edit')
                     @endforeach
                 </tbody>
               </table>
             </div>
           </div>
-          
+
         </div>
       </div>
 
@@ -53,7 +65,7 @@
 
     <!-- Add -->
     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-xl">
           <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Tambah Data</h5>
@@ -65,8 +77,8 @@
                 <form method="post" action="{{route('perintah.kerja.create')}}">
                     @csrf
                     <div class="row">
-                        <div class="col-sm-3">
-                            
+                        <div class="col-sm-2">
+
                             <div class="form-group">
                               <label for="name" class="col-form-label">Merk:</label>
                               <input name="merek" type="text" class="form-control">
@@ -78,7 +90,7 @@
                               <input name="deskripsi" type="text" class="form-control">
                             </div>
                         </div>
-                        <div class="col-sm-2">
+                        <div class="col-sm-1">
                             <div class="form-group">
                               <label for="Kuantitas" class="col-form-label">Kuantitas:</label>
                               <input name="kuantitas" type="number" class="form-control" min="1">
@@ -122,20 +134,16 @@
 @section("addJavascript")
 <script src="{{ asset('js/sweetalert.min.js') }}"></script>
 <script>
-    confirmDelete = function(button) {
-        var url = $(button).data('url');
-        swal({
-            'title' : 'Konfirmasi Hapus Perusahaan',
-            'text' : 'Apakah kamu yakin?',
-            'dangermode' : 'true',
-            'buttons' : true
-        }).then(function(value) {
-            if (value) {
-                window.location = url;
-            }
-        })
+    function printlayer(Layer){
+        var generator = window.open('', 'name', '');
+        var layetext = document.getElementBuId(layer)
+        generator.document.write(layetext.innerHtml.replace("Print Me"));
+
+        generator.document.close();
+        generator.print();
+        generator.close();
     }
-    
+
    public function mytable()
    {
     $(document).ready( function () {

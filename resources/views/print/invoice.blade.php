@@ -2,7 +2,7 @@
 
 @section('content')
 
-  <div class="stl">
+  <div class="stl p-5">
     <header class="clearfix">
       <div id="company" class="clearfix">
         <div><b>CV. MAKMUR 100</b></div>

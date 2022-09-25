@@ -14,16 +14,22 @@ class PerusahaanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $perusahaan= Perusahaan::all();
+        if($request){
+            $perusahaan= Perusahaan::where('nospk', 'like', '%'.$request->cari.'%')->get();
+        }
+        else{
+            $perusahaan= Perusahaan::orderby('created_at', 'desc')->get();
+        }
+
         // dd($perusahaan);
         // dump($perusahaan);
 
         return view ('perusahaan.index', compact('perusahaan'));
 
     }
-    
+
 
     /**
      * Show the form for creating a new resource.
@@ -176,7 +182,9 @@ class PerusahaanController extends Controller
     public function destroy($id)
     {
         //
-        $perusahaan = Perusahaan::find($id)->delete();
+        $perusahaan = Perusahaan::find($id);
+        // dd($perusahaan);
+        $perusahaan->delete();
         return redirect()->back();
     }
     public function store_spk(Request $request)

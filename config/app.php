@@ -163,6 +163,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         Riskihajar\Terbilang\TerbilangServiceProvider::class,
+        RealRashid\SweetAlert\SweetAlertServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -230,6 +231,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Terbilang' => Riskihajar\Terbilang\Facades\Terbilang::class,
+        'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
 
     ],
 
