@@ -5,40 +5,42 @@
    
     <!-- <link rel="stylesheet" href="https://cdn.usebootstrap.com/bootstrap/4.4.1/css/bootstrap.min.css"> -->
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
-<div class="stl">
+<section class="cart-wrap p-5 ">   
+  <div class="container bg-white p-5">
     <header>
-  <div>
-      <div style="margin-bottom:40px;">
-        <strong style=" text-decoration: underline; margin-left: 260px; "><b>BERITA ACARA SERAH TERIMA PEKERJAAN</b> </strong>
+      <div class="row">
+        <div class="col-12">
+          <div class=" text-center text-decoration-none" style="margin-bottom:40px;">
+            <strong><b>BERITA ACARA SERAH TERIMA PEKERJAAN</b> </strong>
+          </div>
+                  <!-- <div id="company" class="clearfix">
+                    <div><b>CV. MAKMUR 100</b></div>
+                    <div>455 Foggy Heights,<br /> AZ 85004, US</div>
+                    <div>(602) 519-0450</div>
+                    <div><a href="mailto:company@example.com">company@example.com</a></div>
+                  </div> -->
+            <div id="project">
+              <div>Yang Bertanda tangan dibawah ini:</div>
+                <p>Hari/Tgl: <strong id="tanggalwaktu"></strong></p><br>
+                <p>1. Nama : {{$perusahaan[0]->pemberi_kerja}}</p> <div class="clearfix" id="company" style="padding-left: 250px;"> <strong> {{$perusahaan[0]->nama}} </strong></div>
+                  <div>Bertindak untuk dan atas nama :</div>
+                    <div>Yang Selanjutnya disebut dengan <b style=" text-decoration: underline;">PIHAK KEDUA</b></div>
+                        <p>2. Nama : Muncarno</p>
+                        <div>   Alamat : Jimbaran. 05/08 Gondoriyo, Bergas. Kab Semarang, 50552</div>
+                          <div style="padding-top:20px;">Bertindak untuk dan atas nama <b>CV.Munrizky Jaya</b></div>
+                            <div>Yang Selanjutnya disebut dengan <b style=" text-decoration: underline;">PIHAK KEDUA</b></div>
+                                <div style="padding-bottom:30px;">   Dengan ini setuju sepakat untuk melakukan Penyerahan pekerjaan dengan speksifikasi sebagai berikut:</div>
       </div>
-      <!-- <div id="company" class="clearfix">
-        <div><b>CV. MAKMUR 100</b></div>
-        <div>455 Foggy Heights,<br /> AZ 85004, US</div>
-        <div>(602) 519-0450</div>
-        <div><a href="mailto:company@example.com">company@example.com</a></div>
-      </div> -->
-      <div id="project">
-        <div>Yang Bertanda tangan dibawah ini:</div>
-        <p>Hari/Tgl: <strong id="tanggalwaktu"></strong></p><br>
-
-        <p>1. Nama : {{$perusahaan[0]->pemberi_kerja}}</p> <div class="clearfix" id="company" style="padding-left: 250px;"> <strong> {{$perusahaan[0]->nama}} </strong></div>
-        <div>Bertindak untuk dan atas nama :</div>
-        <div>Yang Selanjutnya disebut dengan <b style=" text-decoration: underline;">PIHAK KEDUA</b></div>
-        <p>2. Nama : Muncarno</p>
-        <div>   Alamat : Jimbaran. 05/08 Gondoriyo, Bergas. Kab Semarang, 50552</div>
-        <div style="padding-top:20px;">Bertindak untuk dan atas nama <b>CV.Munrizky Jaya</b></div>
-        <div>Yang Selanjutnya disebut dengan <b style=" text-decoration: underline;">PIHAK KEDUA</b></div>
-        <div style="padding-bottom:30px;">   Dengan ini setuju sepakat untuk melakukan Penyerahan pekerjaan dengan speksifikasi sebagai berikut:</div>
       </div>
     </header>
     <main>
       
-      <table>
+      <table class="table-striped">
         <thead>
           <tr>
-            <th class="">NO</th>
-            <th class="">MERK</th>
-            <th>Description</th>
+            <th>NO</th>
+            <th>MERK</th>
+            <th>Description</th> 
             <th>Total QTY</th>
             <th>Price</th>
             <th>Total</th>
@@ -71,19 +73,19 @@
         </tbody>
       </table>
       <div id="notices">
-        <p style="margin-left:150px;margin-right:450px;border-style: double;"><b>No.SPK :{{$perusahaan[0]->nospk}}</b> </p>
+        <p style="margin-right:450px;border-style: double;"><b>No.SPK :{{$perusahaan[0]->nospk}}</b> </p>
         <div>pekerjaan tersebut kepada <b>Pihak Pertama. </b>dan <b>Pihak Kedua</b> telah menerima hasil pekerjaan tersebut.
         <p>sesuai dengan</p></div>
         <div >Demikian Berita Acara ini dibuat untuk dapat dipergunakan sebagaimana mestinya.</div>
       </div>
     </main>
-<br>
+  <br>
     <div style="margin-top: 10px; display:flex; justify-content: space-between; flex-direction: row;">
       <span>PIHAK PERTAMA <p><b>{{$perusahaan[0]->nama}}</b></p><p style="padding-top:50px;">({{$perusahaan[0]->pemberi_kerja}})</p></span>
       <span>PIHAK KEDUA<p>CV Munrizky Jaya</p><p style="padding-top:50px;">MUNCARNO</p></span>
     </div>
     </div>
-  
+</section> 
     @stop
 
     @section('addCss')

@@ -1,48 +1,54 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="ml-5 mt-5 bg-transparent">
-<img src="{{asset('/images/LogoCV.jpeg')}}" width="300px" alt="">
-<h2 style="margin-top: 10px;">Kwitansi</h2><hr>
-<h2 style="margin-top: 0;">Tanda Terima</h2>
+<section class="cart-wrap p-5">
+    <div class=" container bg-white p-5">
+        <img class="float-right p-2" src="{{asset('/images/LogoCV.jpeg')}}" width="300px" alt="">
+        <h2 class="text-left py-2" style="margin-left:0;">Kwitansi</h2>
+        <hr>
+        <div class="row">
+            <div class="col-10">
+                <h2 class="py-3">Tanda Terima</h2>
 
-<!-- isi Kwitansi -->
-<table>
-    <tr>
-    <td valign="top" > Telah Diterima Dari </td>
-    <td valign="top" > : {{$perusahaan[0]->nama}} </td>
-    </tr>
+                    <!-- isi Kwitansi -->
+                <table>
+                    <tr>
+                    <td valign="top" > Telah Diterima Dari </td>
+                    <td valign="top" > : {{$perusahaan[0]->nama}} </td>
+                    </tr>
 
-    <tr>
-    <td valign="top" > Terbilang </td>
-    <td valign="top" style="text-transform: uppercase;" > : {{Riskihajar\Terbilang\Facades\Terbilang::make($jumlah)}} Rupiah</td>
-    </tr>
+                    <tr>
+                    <td valign="top" > Terbilang </td>
+                    <td valign="top" style="text-transform: uppercase;" > : {{Riskihajar\Terbilang\Facades\Terbilang::make($jumlah)}} Rupiah</td>
+                    </tr>
 
-    <tr>
-    <td valign="top" > Guna membayar </td>
-    <td valign="top" > : Pembayaran Invoice <span class="invoice ml-2"> {{$perusahaan[0]->invoice}} </span></td>
-    </tr>
+                    <tr>
+                    <td valign="top" > Guna membayar </td>
+                    <td valign="top" > : Pembayaran Invoice <span class="invoice ml-2"> {{$perusahaan[0]->invoice}} </span></td>
+                    </tr>
 
-    <tr>
-        <td valign="top" > Banyaknya uang </td>
-        <td valign="top" > : Rp. {{$jumlah}}</td>
-    </tr>
-</table>
+                    <tr>
+                        <td valign="top" > Banyaknya uang </td>
+                        <td valign="top" > : Rp. {{$jumlah}}</td>
+                    </tr>
+                </table>
 
-<!-- ttd kanan bawah -->
+                <!-- ttd kanan bawah -->
 
-<div>
+                <div>
 
-	<div class="ttd">
-		<p>Semarang, <span id="tanggalwaktu"></span></p><br/>
-        <img class="tanda" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Tanda_tangan_bapak.png/899px-Tanda_tangan_bapak.png" alt="">
-        <!-- fungsi p supaya ada jarak nya saja, bisa diganti pake style -->
-        <p></p>
-        yang menerima
-		<p class="nama">Nama : MUNCARNO.<br/>NIP. 1234</p>
-	</div>
-</div>
-
+                <div class="ttd">
+                    <p>Semarang, <span id="tanggalwaktu"></span></p><br/>
+                <img class="tanda" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Tanda_tangan_bapak.png/899px-Tanda_tangan_bapak.png" alt="">
+                    <!-- fungsi p supaya ada jarak nya saja, bisa diganti pake style -->
+                    <p></p>
+                        yang menerima
+                        <p class="nama">Nama : MUNCARNO.<br/>NIP. 1234</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <style>
     a {
         text-decoration: none;
