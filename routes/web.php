@@ -52,4 +52,4 @@ Route::get('/berita/{id}', 'App\Http\Controllers\PerusahaanController@berita')->
 Route::get('/invoice/{id}', 'App\Http\Controllers\PerusahaanController@invoice')->name('invoice');
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

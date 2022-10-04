@@ -27,7 +27,7 @@ class HomeController extends Controller
     {
         $perusahaan = Perusahaan::all()->count();
         $perintah = Perintah_kerja::all()->count();
-
+        // dd($perintah);
         return view('home', compact('perintah','perusahaan'));
     }
 }
