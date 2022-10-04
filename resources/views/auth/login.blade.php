@@ -53,7 +53,7 @@
 
                         <div class="row mb-0" id="log">
                             <div class="col-md-8 offset-md-4">
-                            <center>    
+                            <center>
                                 <button type="submit" class="btn-login btn-primary">
                                     {{ __('Login') }}
                                 </button>
@@ -64,6 +64,11 @@
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
+                                <p>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+
+                                </p>
+
                             </div>
                         </div>
                     </form>
