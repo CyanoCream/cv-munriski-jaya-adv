@@ -107,6 +107,9 @@ class PerintahkerjaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pk = Perintah_kerja::find($id);
+        $pk->delete();
+
+        return redirect()->back();
     }
 }

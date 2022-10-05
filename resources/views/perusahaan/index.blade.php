@@ -83,7 +83,7 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target=".bd-edit-modal-lg{{$p->id}}">
                                     <i class="fa fa-pencil" aria-hidden="true"></i> edit</a>
-                                <a href="#" onclick="confirmDelete(this)" class="dropdown-item" data-url="{{ route('delete.perusahaan', ['id' => $p->id]) }}">
+                                <a href="{{route('delete.perusahaan',['id' =>$p->id])}}" onclick="confirmDelete(this)" class="dropdown-item" data-url="{{ route('delete.perusahaan', ['id' => $p->id]) }}">
                                     <i class="fa fa-trash" aria-hidden="true"></i> delete</a>
                             </div>
                         </div>

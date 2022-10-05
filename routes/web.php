@@ -35,6 +35,7 @@ Route::get('/data/perusahaan', 'App\Http\Controllers\PerusahaanController@index'
 Route::post('/data/perusahaan', 'App\Http\Controllers\PerusahaanController@store')->name('store.perusahaan')->middleware('auth');
 Route::put('/data/perusahaan/{id}', 'App\Http\Controllers\PerusahaanController@update')->name('update.perusahaan')->middleware('auth');
 Route::get('/data/perusahaan/{id}', 'App\Http\Controllers\PerusahaanController@destroy')->name('delete.perusahaan')->middleware('auth');
+Route::get('/data/perintah_kerja/{id}', 'App\Http\Controllers\PerintahkerjaController@destroy')->name('delete.perintah')->middleware('auth');
 
 Route::get('/data/perintah_kerja', function () {
     return view('perintah_kerja.index');

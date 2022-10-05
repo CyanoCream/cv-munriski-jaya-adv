@@ -2,7 +2,7 @@
 
 @section('content')
 
-<a href="#" id="print" onclick="javascript printlayer('div-id-name')">Print T</a>
+{{-- <a href="#" id="print" onclick="javascript printlayer('div-id-name')">Print T</a> --}}
 <div class="container" id="div-id-name">
 
   <h2 class="p-2 text-center"> Jenis Pekerjaan </h2>
