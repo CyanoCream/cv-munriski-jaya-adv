@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="form-group col-5">
+    <div class="form-group col-6">
         <form>
             <div class="form-group">
               <label for="formGroupExampleInput">No SPK</label>

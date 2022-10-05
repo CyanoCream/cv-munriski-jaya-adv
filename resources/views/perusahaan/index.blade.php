@@ -57,12 +57,18 @@
                         @if ($p->status_pembayaran == 'Lunas')
                         <td class="text-success">
                             <b><i class="fa fa-check-circle mr-1" aria-hidden="true"></i>{{$p->status_pembayaran}}</b>
+                            <a class="mr-2" href="#" data-toggle="modal" data-target=".bd-edit-modal-lg1{{$p->id}}">
+                                <i class="fa fa-pencil mr-2" aria-hidden="true"></i></a>
                         </td>
                         @else
                         <td class="text-danger">
                             <b><i class="fa fa-times-circle mr-1" aria-hidden="true"></i>{{$p->status_pembayaran}}</b>
+
+                            <a class="mr-2" href="#" data-toggle="modal" data-target=".bd-edit-modal-lg1{{$p->id}}">
+                                <i class="fa fa-pencil mr-2" aria-hidden="true"></i></a>
                         </td>
                         @endif
+
                     <td>
                         <!-- Example single danger button -->
                         <div class="btn-group">
@@ -138,7 +144,7 @@
                           <input type="text" class="form-control" name="pemberi_kerja">
                         </div>
                     </div>
-                    <div class="col-sm-12">
+                    <div class="col-sm-6">
                         <div class="form-group">
                           <label for="name" class="col-form-label">Alamat:</label>
                           <input type="text" class="form-control" name="alamat">
