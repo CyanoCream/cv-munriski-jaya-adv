@@ -14,7 +14,7 @@
             <form action="{{route('perusahaan')}}" method="get">
                 @csrf
                 <div class="input-group-prepend hover-cursor" id="navbar-search-icon" style="border:1px solid #7497c6; border-radius:20px;">
-                    <input name="cari" style="background-color:transparent; border-color:transparent;" type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
+                    <input name="cari" style="background-color:transparent; border-color:transparent;" type="text" class="form-control" id="navbar-search-input" placeholder="Search No SPK" aria-label="search" aria-describedby="search">
                     <button type="submit" class="fa fa-search"  style="background-color:transparent; border-color:transparent; color:#5276a2;"></button>
                 </div>
             </form>

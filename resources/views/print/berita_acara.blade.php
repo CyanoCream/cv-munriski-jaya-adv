@@ -2,10 +2,10 @@
 
 @section('content')
 
-   
+
     <!-- <link rel="stylesheet" href="https://cdn.usebootstrap.com/bootstrap/4.4.1/css/bootstrap.min.css"> -->
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
-<section class="cart-wrap p-5 ">   
+<section class="cart-wrap p-5 ">
   <div class="container bg-white p-5">
     <header>
       <div class="row">
@@ -34,31 +34,34 @@
       </div>
     </header>
     <main>
-      
+
       <table class="table-striped">
         <thead>
           <tr>
             <th>NO</th>
             <th>MERK</th>
-            <th>Description</th> 
+            <th>Description</th>
             <th>Total QTY</th>
+            <th>Dalam Bentuk</th>
             <th>Price</th>
             <th>Total</th>
           </tr>
         </thead>
         <tbody>
-        @foreach ($perintah_kerja as $p) 
+        @foreach ($perintah_kerja as $p)
         <tr>
             <td>{{++$i}}</td>
-            <td class="">{{$p->merk}}</td>
+            <td class="">{{$p->merek}}</td>
             <td class="">{{$p->deskripsi}}</td>
-            <td class="">Rp.{{$p->harga_unit}}</td>
             <td class="">{{$p->kuantitas}}</td>
-            <td class="">{{$p->total}}</td>
+            <td class="">{{$p->jenis}}</td>
+            <td class="">Rp.{{$p->harga_unit}}</td>
+            <td class="">Rp.{{$p->total}}</td>
           </tr>
           @endforeach
-          
+
           <tr>
+            <td></td>
             <td></td>
             <td colspan="4" class="grand total">Total Spk Bruto <br>
               Nilai DPP <br>
@@ -69,7 +72,7 @@
               Rp.{{$ppn}}<br>
               Rp.{{$netto}}</td>
           </tr>
-          
+
         </tbody>
       </table>
       <div id="notices">
@@ -85,7 +88,7 @@
       <span>PIHAK KEDUA<p>CV Munrizky Jaya</p><p style="padding-top:50px;">MUNCARNO</p></span>
     </div>
     </div>
-</section> 
+</section>
     @stop
 
     @section('addCss')

@@ -6,9 +6,28 @@
             <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a {{-- href="{{route('dashboard')}}" --}} class="nav-link">Dashboard</a>
+            <a {{-- href="{{route('dashboard')}}" --}} class="nav-link"><img class="float-right p-2" src="{{asset('/images/LogoCV.jpeg')}}" width="150px" alt=""></a>
         </li>
     </ul>
+
+    <ul class="ml-auto mt-2">
+        <a class="text-dark" href="{{ route('logout') }}"
+           onclick="event.preventDefault();
+                         document.getElementById('logout-form').submit();"><i class="fa-solid fa-circle-xmark"></i>
+            {{ __('Logout') }}
+        </a>
+    </ul>
+    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="{{ route('logout') }}"
+           onclick="event.preventDefault();
+                         document.getElementById('logout-form').submit();">
+            {{ __('Logout') }}
+        </a>
+
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
+    </div>
     {{-- <ul class="navbar-nav mr-lg-2">
           <li class="nav-item nav-search d-none d-lg-block">
             <div class="input-group" style="margin-left:800px;">

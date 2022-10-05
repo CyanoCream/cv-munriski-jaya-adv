@@ -45,7 +45,7 @@
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="#" data-toggle="modal" data-target=".bd-edit-modal-lg{{$perintah->id}}">
                                         <i class="fa fa-pencil" aria-hidden="true"></i> edit</a>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{route('delete.perintah',['id' =>$perintah->id])}}">
                                         <i class="fa fa-trash" aria-hidden="true"></i> delete</a>
                                 </div>
                             </div>

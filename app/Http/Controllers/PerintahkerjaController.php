@@ -12,15 +12,27 @@ class PerintahkerjaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $perintah_kerja = Perintah_kerja::with('perusahaan')->get();
+        if($request){
+            $perintah_kerja= Perintah_kerja::where('merek', 'like', '%'.$request->cari.'%')->get();
+        }
+        else{
+            $perintah_kerja= Perintah_kerja::all();
+        }
+
+        // dd($perusahaan);
+        // dump($perusahaan);
+
+
+
         // $perusahaan = Perusahaan::find();
         // dd($perusahaan);
         // dd($perintah_kerja);
 
         return view('perintah_kerja.index', compact('perintah_kerja'))->with('i');
     }
+
 
     /**
      * Show the form for creating a new resource.

@@ -6,6 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card"><div class="card-body">
+                <img class="float-right p-2" src="{{asset('/images/LogoCV.jpeg')}}" width="300px" alt="">
                 <div class="card-header">{{ __('Login') }}</div>
                 <br><br>
                     <form method="POST" action="{{ route('login') }}">

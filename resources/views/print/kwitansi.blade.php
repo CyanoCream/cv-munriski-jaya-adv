@@ -7,7 +7,7 @@
         <h2 class="text-left py-2" style="margin-left:0;">Kwitansi</h2>
         <hr>
         <div class="row">
-            <div class="col-10">
+            <div class="col-12">
                 <h2 class="py-3">Tanda Terima</h2>
 
                     <!-- isi Kwitansi -->
@@ -24,7 +24,7 @@
 
                     <tr>
                     <td valign="top" > Guna membayar </td>
-                    <td valign="top" > : Pembayaran Invoice <span class="invoice ml-2"> {{$perusahaan[0]->invoice}} </span></td>
+                    <td valign="top" > : Pembayaran Invoice  <a class="border">  {{$perusahaan[0]->invoice}}</a></td>
                     </tr>
 
                     <tr>

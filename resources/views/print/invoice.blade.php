@@ -26,6 +26,7 @@
             <th class="desc">MERK</th>
             <th>Description</th>
             <th>Total QTY</th>
+            <th>Dalam Bentuk</th>
             <th>Price</th>
             <th>Total</th>
           </tr>
@@ -43,6 +44,7 @@
           </tr>
           @endforeach
           <tr>
+            <td></td>
             <td></td>
             <td colspan="4" class="grand total">Total Spk Bruto <br>
               Nilai DPP <br>

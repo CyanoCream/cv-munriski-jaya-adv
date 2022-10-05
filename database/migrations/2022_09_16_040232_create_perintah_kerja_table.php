@@ -16,7 +16,7 @@ class CreatePerintahKerjaTable extends Migration
         Schema::create('perintah_kerja', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('perusahaan_id')->unsigned();
-            $table->foreign('perusahaan_id')->references('id')->on('perusahaan');
+            $table->foreign('perusahaan_id')->references('id')->on('perusahaan')->onDelete('cascade');
             $table->string('merek')->nullable;
             $table->string('deskripsi');
             $table->integer('kuantitas');
