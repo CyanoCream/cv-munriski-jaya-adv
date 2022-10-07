@@ -50,6 +50,8 @@
 	<script src="{{asset('js/adminlte.min.js')}}"></script>
 	<!-- Sweetalert -->
 	<script src="{{asset('js/sweetalert.min.js')}}"></script>
+	<!-- coba chart -->
+	<script src="{{asset('js/main.js')}}"></script>
  
 	@yield('addJavascript')
     @include('sweetalert::alert')
