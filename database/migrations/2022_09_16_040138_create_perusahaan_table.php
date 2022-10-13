@@ -17,7 +17,7 @@ class CreatePerusahaanTable extends Migration
             $table->id();
             $table->timestamps();
             $table->softdeletes();
-            $table->string('invoice');
+            // $table->string('invoice');
             $table->string('nospk');
             $table->string('nama');
             $table->datetime('tanggal');

@@ -48,11 +48,20 @@
                         <td>Rp.{{$perintah->harga_unit}}</td>
                         <td>Rp.{{$perintah->total}} </td>
                         <td>
-                            <button style="margin-left: 1px;" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg{{$perintah->id}}">Edit</button>
-
-                            <a href="{{route('delete.perintah',['id' =>$perintah->id])}}" style="margin-left: 1px;" onclick="confirmDelete(this)" class="btn btn-danger" role="button" data-url="#">Delete</a>
-                        </td>
+                            <div class="btn-group">
+                                <a href="#" data-toggle="dropdown" class="m-2">
+                                    <i class="fa fa-bars" aria-hidden="true"></i>
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target=".bd-edit-modal-lg{{$perintah->id}}">
+                                        <i class="fa fa-pencil" aria-hidden="true"></i> edit</a>
+                                    <a class="dropdown-item" href="{{route('delete.perintah',['id' =>$perintah->id])}}">
+                                        <i class="fa fa-trash" aria-hidden="true"></i> delete</a>
+                                </div>
+                            </div>
+                            </td>
                     </tr>
+                    @include('perintah_kerja.edit')
                 @endforeach
             </tbody>
           </table>
@@ -60,7 +69,6 @@
       </div>
     </div>
   </div>
-
 </div>
 
 <!-- Add -->

@@ -11,7 +11,7 @@
         <div><a href="mailto:company@example.com">company@example.com</a></div>
       </div>
       <div id="project">
-        <div>{{$perusahaan[0]->invoice}} </div><br>
+        <div>MRJ-{{ date('dmy', strtotime($perusahaan[0]->created_at)) }}-{{$perusahaan[0]->id}} </div><br>
 
         <div><b>{{$perusahaan[0]->nama}} </b></div>
         <div>{{$perusahaan[0]->alamat}} , {{$perusahaan[0]->provinsi}} ,</div>
@@ -69,6 +69,11 @@
       <span style="margin-right:10px;">Muncarno</span>
     </div>
     </div>
+@stop
+@section('addJavascript')
+<script>
+ window.print();
+ </script>
 @stop
 @section('addCss')
 <style>

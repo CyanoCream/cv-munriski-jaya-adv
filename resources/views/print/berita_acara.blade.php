@@ -237,6 +237,9 @@ table td.grand {
     @stop
 
 @section('addJavascript')
+<script>
+ window.print();
+ </script>
 
 <script>
 var tw = new Date();

@@ -34,17 +34,11 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                          <label for="NPWP" class="col-form-label">NPWP:</label>
-                          <input name="npwp" type="text" class="form-control" value="{{$p->npwp}}">
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
                           <label for="name" class="col-form-label">Nama Pemberi Kerja:</label>
                           <input type="text" class="form-control" name="pemberi_kerja" value="{{$p->pemberi_kerja}}">
                         </div>
                     </div>
-                    <div class="col-sm-6">
+                    <!-- <div class="col-sm-6">
                         <div class="form-group">
                           <label for="status_pembayaran" class="col-form-label">Status Pembayaran:</label>
                               <select class="form-control" name="status_pembayaran" id="status_pembayaran">
@@ -52,8 +46,8 @@
                               <option value="Lunas">Lunas</option>
                               </select>
                         </div>
-                    </div>
-                    <div class="col-sm-12">
+                    </div> -->
+                    <div class="col-sm-6">
                         <div class="form-group">
                           <label for="name" class="col-form-label">Alamat:</label>
                           <input type="text" class="form-control" name="alamat" value="{{$p->alamat}}">
@@ -73,14 +67,8 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                          <label for="name" class="col-form-label">Kode Pos:</label>
+                          <label for="name" class="col-form-label">Kode Pos:(berupa angka)*</label>
                           <input type="text" class="form-control" name="kodepos" value="{{$p->kodepos}}">
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                          <label for="name" class="col-form-label">Invoice:</label>
-                          <input type="text" class="form-control" name="invoice" value="{{$p->invoice}}">
                         </div>
                     </div>
                 </div>
@@ -109,7 +97,7 @@
             <form method="post" action="{{route('update.perusahaan', ['id' => $p->id])}}">
                 @csrf
                 @method('put')
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                         <div class="form-group">
                           <label for="status_pembayaran" class="col-form-label">Status Pembayaran:</label>
                               <select class="form-control" name="status_pembayaran" id="status_pembayaran" ">

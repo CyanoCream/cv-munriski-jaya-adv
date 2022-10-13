@@ -34,9 +34,9 @@
                 <th scope="col">Provinsi</th>
                 <th scope="col">Kota</th>
                 <th scope="col">Kode Pos</th>
-                <th scope="col">NPWP</th>
                 <th scope="col">Nama Pemberi Kerja</th>
                 <th scope="col">Status Pembayaran</th>
+                <th scope="col">Cetak Laporan</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
@@ -45,14 +45,17 @@
                 <tr>
                     <td scope="row">{{$loop->index + 1}}</td>
                     <td>{{$p->nospk}}</td>
-                    <td>{{$p->invoice}}</td>
+                    @if($p->status_pembayaran == 'Lunas')
+                    <td>MRJ-{{ date('dmy', strtotime($p->created_at)) }}-{{$p->id}}</td>
+                    @else
+                    <td class="text-danger text-bold">Proses Transaksi</td>
+                    @endif
                     <td>{{ date('d F y', strtotime($p->tanggal)) }}</td>
                     <td>{{$p->nama}}</td>
                     <td>{{$p->alamat}}</td>
                     <td>{{$p->provinsi}}</td>
                     <td>{{$p->kota}}</td>
                     <td>{{$p->kodepos}}</td>
-                    <td>{{$p->npwp}}</td>
                     <td>{{$p->pemberi_kerja}}</td>
                         @if ($p->status_pembayaran == 'Lunas')
                         <td class="text-success">
@@ -68,7 +71,7 @@
                                 <i class="fa fa-pencil mr-2" aria-hidden="true"></i></a>
                         </td>
                         @endif
-
+                    @if ($p->status_pembayaran == 'Lunas')
                     <td>
                         <!-- Example single danger button -->
                         <div class="btn-group">
@@ -76,17 +79,26 @@
                                 <i class="fa fa-bars" aria-hidden="true"></i>
                             </a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="{{ route('pesan', ['id' => $p->id]) }}">
-                                    <i class="fa fa-asterisk" aria-hidden="true"></i> detail</a>
-                                <a class="dropdown-item" href="{{route('invoice', ['id'=>$p->id])}}">
-                                    <i class="fa fa-print" aria-hidden="true"></i> print</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target=".bd-edit-modal-lg{{$p->id}}">
-                                    <i class="fa fa-pencil" aria-hidden="true"></i> edit</a>
-                                <a href="{{route('delete.perusahaan',['id' =>$p->id])}}" onclick="confirmDelete(this)" class="dropdown-item" data-url="{{ route('delete.perusahaan', ['id' => $p->id]) }}">
-                                    <i class="fa fa-trash" aria-hidden="true"></i> delete</a>
+                                <a class="dropdown-item" target="_blank" href="{{ route('berita', ['id' => $p->id]) }}">
+                                    <i class="fa fa-print" aria-hidden="true"></i> Berita Acara</a>
+                                <a class="dropdown-item" target="_blank" href="{{route('invoice', ['id'=>$p->id])}}">
+                                    <i class="fa fa-print" aria-hidden="true"></i>Invoice</a>
+                                    <a class="dropdown-item" target="_blank" href="{{route('kwitansi', ['id'=>$p->id])}}">
+                                    <i class="fa fa-print" aria-hidden="true"></i>Kwitansi</a>
+                               
                             </div>
                         </div>
+                    </td>
+                      @else
+                      <td>Transaksi belum selesai</td>
+                      @endif
+                    <td>
+                      
+                      
+                    <a href="{{route('pesan', ['id'=>$p->id])}}" style="margin-left: 1px;"  class="btn btn-warning mb-2" role="button" data-url="{{ route('delete.perusahaan', ['id' => $p->id]) }}">Detail*</a>
+                      <button type="button" class="btn btn-primary md-2" style="margin-left: 1px;" data-toggle="modal" data-target=".bd-edit-modal-lg{{$p->id}}">Edit</button>
+                      <a href="{{route('delete.perusahaan',['id' =>$p->id])}}" style="margin-left: 1px;" onclick="confirmDelete(this)" class="btn btn-danger mt-2" role="button" data-url="{{ route('delete.perusahaan', ['id' => $p->id]) }}">Delete</a>
+
                     </td>
                 </tr>
                 @include('perusahaan.edit')
@@ -134,12 +146,6 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                          <label for="NPWP" class="col-form-label">NPWP:</label>
-                          <input name="npwp" type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
                           <label for="pemberi_kerja" class="col-form-label">Pemberi Kerja:</label>
                           <input type="text" class="form-control" name="pemberi_kerja">
                         </div>
@@ -158,20 +164,14 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                          <label for="name" class="col-form-label">kabupaten/Kota:</label>
+                          <label for="name" class="col-form-label">Kabupaten/Kota:</label>
                           <input type="text" class="form-control" name="kota">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                          <label for="name" class="col-form-label">Kode Pos:</label>
+                          <label for="name" class="col-form-label">Kode Pos: (berupa angka)*</label>
                           <input type="text" class="form-control" name="kodepos">
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                          <label for="name" class="col-form-label">Invoice:</label>
-                          <input type="text" class="form-control" name="invoice">
                         </div>
                     </div>
                 </div>

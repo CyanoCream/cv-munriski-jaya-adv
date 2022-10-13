@@ -51,7 +51,6 @@ class PerusahaanController extends Controller
     {
         // dd($request);
         $perusahaan = new Perusahaan();
-        $perusahaan->invoice= $request->invoice;
         $perusahaan->nospk= $request->nospk;
         $perusahaan->nama= $request->nama;
         $perusahaan->alamat= $request->alamat;
@@ -59,7 +58,6 @@ class PerusahaanController extends Controller
         $perusahaan->provinsi= $request->provinsi;
         $perusahaan->kota= $request->kota;
         $perusahaan->kodepos= $request->kodepos;
-        $perusahaan->npwp= $request->npwp;
         $perusahaan->pemberi_kerja= $request->pemberi_kerja;
         $perusahaan->save();
 
@@ -157,7 +155,6 @@ class PerusahaanController extends Controller
     {
         // dd($request);
         $perusahaan = Perusahaan::find($id);
-        $perusahaan->invoice= $request->invoice;
         $perusahaan->nospk= $request->nospk;
         $perusahaan->nama= $request->nama;
         $perusahaan->alamat= $request->alamat;
@@ -165,7 +162,6 @@ class PerusahaanController extends Controller
         $perusahaan->provinsi= $request->provinsi;
         $perusahaan->kota= $request->kota;
         $perusahaan->kodepos= $request->kodepos;
-        $perusahaan->npwp= $request->npwp;
         $perusahaan->pemberi_kerja= $request->pemberi_kerja;
         $perusahaan->status_pembayaran = $request->status_pembayaran;
         $perusahaan->save();

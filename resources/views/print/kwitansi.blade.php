@@ -104,6 +104,9 @@
 @section('addJavascript')
 
 <script>
+ window.print();
+ </script>
+<script>
 var tw = new Date();
 if (tw.getTimezoneOffset() == 0) (a=tw.getTime() + ( 7 *60*60*1000))
 else (a=tw.getTime());

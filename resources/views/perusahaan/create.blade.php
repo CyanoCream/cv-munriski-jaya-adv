@@ -15,10 +15,6 @@
               <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
             </div>
             <div class="form-group">
-              <label for="formGroupExampleInput2">No Invoice</label>
-              <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
-            </div>
-            <div class="form-group">
                 <label for="formGroupExampleInput">Tanggal</label>
                 <input type="date" class="form-control" id="formGroupExampleInput" placeholder="Example input">
               </div>
@@ -41,10 +37,6 @@
               <div class="form-group">
                 <label for="formGroupExampleInput">Kode POS</label>
                 <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Example input">
-              </div>
-              <div class="form-group">
-                <label for="formGroupExampleInput2">NPWP</label>
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
               </div>
               <div class="form-group">
                 <label for="formGroupExampleInput">Pemberi Kerja</label>

@@ -25,9 +25,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $perusahaan = Perusahaan::all()->count();
-        $perintah = Perintah_kerja::all()->count();
-        // dd($perintah);
-        return view('home', compact('perintah','perusahaan'));
+        date_default_timezone_set("Asia/Jakarta");
+
+        //ambil jam dan menit
+        $jam = date('H:i');
+        $perusahaan = Perusahaan::where('status_pembayaran', 'lunas')->get();
+        $perintah = Perintah_kerja::all();
+        // dd($perusahaan);
+        // dd($jam);
+        return view('home', compact('perintah','perusahaan', 'jam'));
     }
 }
