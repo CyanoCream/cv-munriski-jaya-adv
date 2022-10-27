@@ -5,10 +5,10 @@
   <div class="stl p-5">
     <header class="clearfix">
       <div id="company" class="clearfix">
-        <div><b>CV. MAKMUR 100</b></div>
-        <div>455 Foggy Heights,<br /> AZ 85004, US</div>
-        <div>(602) 519-0450</div>
-        <div><a href="mailto:company@example.com">company@example.com</a></div>
+        <div><b>CV Munrizky Jaya</b></div>
+        <div>4jimbaran 05/08 Gondoriyo,<br /> Bergas <br>Kab. Semarang 50552</div>
+        <div>085 848 847 591</div>
+        <div><a href="mailto:Munrizky_jaya@gmail.com">Munrizky_jaya@gmail.com</a></div>
       </div>
       <div id="project">
         <div>MRJ-{{ date('dmy', strtotime($perusahaan[0]->created_at)) }}-{{$perusahaan[0]->id}} </div><br>

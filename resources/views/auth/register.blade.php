@@ -89,7 +89,7 @@
         margin-top:10px;
     }
     .container{
-        background-image: url('https://cutewallpaper.org/28/cool-tech-wallpaper-gifs/network-technology-wallpaper-network-optimization-motion-graphics-design.gif');
+        /* background-image: url('https://cutewallpaper.org/28/cool-tech-wallpaper-gifs/network-technology-wallpaper-network-optimization-motion-graphics-design.gif'); */
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;

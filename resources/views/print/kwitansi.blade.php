@@ -24,12 +24,12 @@
 
                     <tr>
                     <td valign="top" > Guna membayar </td>
-                    <td valign="top" > : Pembayaran Invoice  <a class="border">  {{$perusahaan[0]->invoice}}</a></td>
+                    <td valign="top" > : Pembayaran SPK : {{$perusahaan[0]->nospk}},  <a> Sesuai Invoice MRJ-{{ date('dmy', strtotime($perusahaan[0]->created_at)) }}-{{$perusahaan[0]->id}}</a></td>
                     </tr>
 
                     <tr>
                         <td valign="top" > Banyaknya uang </td>
-                        <td valign="top" > : Rp. {{$jumlah}}</td>
+                        <td valign="top" > : Rp. {{$netto}}</td>
                     </tr>
                 </table>
 
