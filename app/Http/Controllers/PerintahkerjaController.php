@@ -43,7 +43,7 @@ class PerintahkerjaController extends Controller
     {
         $perusahaan = Perusahaan::all();
         $perintah = new Perintah_kerja;
-        $perintah->perusahaan_id = '1';
+        $perintah->perusahaan_id = $request->perusahaan_id;
         $perintah->deskripsi = $request->deskripsi;
         $perintah->kuantitas = $request->kuantitas;
         $perintah->harga_unit = $request->harga_unit;

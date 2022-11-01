@@ -39,11 +39,11 @@
 
                 <div class="ttd">
                     <p>Semarang, <span id="tanggalwaktu"></span></p><br/>
-                <img class="tanda" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Tanda_tangan_bapak.png/899px-Tanda_tangan_bapak.png" alt="">
+                <!-- <img class="tanda" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Tanda_tangan_bapak.png/899px-Tanda_tangan_bapak.png" alt=""> -->
                     <!-- fungsi p supaya ada jarak nya saja, bisa diganti pake style -->
                     <p></p>
                         yang menerima
-                        <p class="nama">Nama : MUNCARNO.<br/>NIP. 1234</p>
+                        <p class="nama">Nama : MUNCARNO.</p>
                 </div>
             </div>
         </div>

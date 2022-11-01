@@ -16,7 +16,7 @@ class CreatePerusahaanTable extends Migration
         Schema::create('perusahaan', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->softdeletes();
+            // $table->softdeletes();
             // $table->string('invoice');
             $table->string('nospk');
             $table->string('nama');

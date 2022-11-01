@@ -180,6 +180,8 @@ class PerusahaanController extends Controller
     public function destroy($id)
     {
         //
+        $perintah = Perintah_kerja::where('perusahaan_id', $id)->get();
+        // $perintah->delete();
         $perusahaan = Perusahaan::find($id);
         // dd($perusahaan);
         $perusahaan->delete();

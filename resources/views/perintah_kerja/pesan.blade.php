@@ -78,7 +78,7 @@
                     @csrf
                     <div class="row">
                         <div class="col-sm-2">
-
+                            <input type="hidden" name="perusahaan_id" value="{{$perusahaan[0]->id}}">
                             <div class="form-group">
                               <label for="name" class="col-form-label">Merk:</label>
                               <input name="merek" type="text" class="form-control">

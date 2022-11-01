@@ -53,4 +53,27 @@ Route::get('/berita/{id}', 'App\Http\Controllers\PerusahaanController@berita')->
 Route::get('/invoice/{id}', 'App\Http\Controllers\PerusahaanController@invoice')->name('invoice')->middleware('auth');
 Auth::routes();
 
+
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
+
+
+// Route::get('/public/data/perusahaan', 'App\Http\Controllers\PerusahaanController@index')->name('perusahaan')->middleware('auth');
+// Route::post('/public/data/perusahaan', 'App\Http\Controllers\PerusahaanController@store')->name('store.perusahaan')->middleware('auth');
+// Route::put('/public/data/perusahaan/{id}', 'App\Http\Controllers\PerusahaanController@update')->name('update.perusahaan')->middleware('auth');
+// Route::get('/public/data/perusahaan/{id}', 'App\Http\Controllers\PerusahaanController@destroy')->name('delete.perusahaan')->middleware('auth');
+// Route::get('/public/data/perintah_kerja/{id}', 'App\Http\Controllers\PerintahkerjaController@destroy')->name('delete.perintah')->middleware('auth');
+
+// Route::get('/public/data/perintah_kerja', function () {
+//     return view('perintah_kerja.index');
+// });
+
+// // Route::get('/data/perintah_kerja/{id}', 'App\Http\Controllers\PerusahaanController@show')->name('perintah.kerja');
+// Route::post('/public/data/perintah_kerja', 'App\Http\Controllers\PerusahaanController@store_spk')->name('store.perintah.kerja')->middleware('auth');
+// Route::get('/public/data/perintah_kerja', 'App\Http\Controllers\PerintahkerjaController@index')->name('perintah.kerja')->middleware('auth');
+// Route::post('/public/data/perintah_kerja/create', 'App\Http\Controllers\PerintahkerjaController@create')->name('perintah.kerja.create')->middleware('auth');
+// Route::put('/public/data/perintah_kerja/{id}/update', 'App\Http\Controllers\PerintahkerjaController@update')->name('pk.update')->middleware('auth');
+
+// Route::get('/public/data/pesan/{id}', 'App\Http\Controllers\PerusahaanController@show')->name('pesan')->middleware('auth');
+// Route::get('/public/kwitansi/{id}', 'App\Http\Controllers\PerusahaanController@kwitansi')->name('kwitansi')->middleware('auth');
+// Route::get('/public/berita/{id}', 'App\Http\Controllers\PerusahaanController@berita')->name('berita')->middleware('auth');
+// Route::get('/public/invoice/{id}', 'App\Http\Controllers\PerusahaanController@invoice')->name('invoice')->middleware('auth');
