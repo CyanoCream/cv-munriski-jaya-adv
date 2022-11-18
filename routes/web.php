@@ -43,7 +43,7 @@ Route::get('/data/perintah_kerja', function () {
 
 // Route::get('/data/perintah_kerja/{id}', 'App\Http\Controllers\PerusahaanController@show')->name('perintah.kerja');
 Route::post('/data/perintah_kerja', 'App\Http\Controllers\PerusahaanController@store_spk')->name('store.perintah.kerja')->middleware('auth');
-Route::get('/data/perintah_kerja', 'App\Http\Controllers\PerintahkerjaController@index')->name('perintah.kerja')->middleware('auth');
+// Route::get('/data/perintah_kerja', 'App\Http\Controllers\PerintahkerjaController@index')->name('perintah.kerja')->middleware('auth');
 Route::post('/data/perintah_kerja/create', 'App\Http\Controllers\PerintahkerjaController@create')->name('perintah.kerja.create')->middleware('auth');
 Route::put('/data/perintah_kerja/{id}/update', 'App\Http\Controllers\PerintahkerjaController@update')->name('pk.update')->middleware('auth');
 

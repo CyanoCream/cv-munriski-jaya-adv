@@ -36,13 +36,13 @@
                         <p>Data Perusahaan</p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="/data/perintah_kerja" class="nav-link">
                         <i class="nav-icon fa-solid fa-file-text "></i>
                         <p>Data Pesanan</p>
                     </a>
                 </li>
-                
+                 -->
 
                 {{-- <li class="nav-item">
                     <form id="logout-form" action="{{route('logout')}}" method="post">

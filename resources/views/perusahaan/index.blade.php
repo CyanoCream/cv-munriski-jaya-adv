@@ -45,11 +45,7 @@
                 <tr>
                     <td scope="row">{{$loop->index + 1}}</td>
                     <td>{{$p->nospk}}</td>
-                    @if($p->status_pembayaran == 'Lunas')
                     <td>MRJ-{{ date('dmy', strtotime($p->created_at)) }}-{{$p->id}}</td>
-                    @else
-                    <td class="text-danger text-bold">Proses Transaksi</td>
-                    @endif
                     <td>{{ date('d F y', strtotime($p->tanggal)) }}</td>
                     <td>{{$p->nama}}</td>
                     <td>{{$p->alamat}}</td>
